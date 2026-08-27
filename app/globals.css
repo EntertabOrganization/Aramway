@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #cc9138;
+  --color-primary-dark: #a8752a;
+  --color-secondary: #7e5820;
+  --color-ink: #0c0903;
+  --color-muted: #666666;
+  --color-cream: #fbf7f4;
+  --color-cream-deep: #f5ebd6;
+  --color-cream-soft: #f9f3e7;
+  --color-border: #eae7e4;
+  --color-surface: #fefcfa;
+
+  --font-heading: var(--font-ubuntu-sans), "Segoe UI", sans-serif;
+  --font-body: var(--font-montserrat), "Segoe UI", sans-serif;
+
+  --container-max: 1140px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-surface);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+.container-max {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .container-max {
+    padding-inline: 2rem;
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  color: #fff;
+  background-image: radial-gradient(at bottom center, #cc913870 0%, var(--color-primary) 40%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 8px 24px -8px rgba(204, 145, 56, 0.5);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -8px rgba(204, 145, 56, 0.6);
+}
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  border: 1.5px solid var(--color-border);
+  background: #fff;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-secondary);
+  background: var(--color-cream-soft);
+  border: 1px solid var(--color-cream-deep);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+}
+
+.gold-text {
+  color: var(--color-primary);
+}
