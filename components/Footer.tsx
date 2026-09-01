@@ -33,7 +33,8 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/15 text-xs text-white/70 transition-colors hover:border-primary hover:text-primary"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold text-white transition-opacity hover:opacity-80"
+                  style={{ backgroundColor: "var(--color-gold-light)" }}
                 >
                   {s.label[0]}
                 </a>
@@ -90,12 +91,37 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
           <p>Copyright © {new Date().getFullYear()} ARAMWAY. All rights reserved.</p>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-2">
             <Link href="/terms" className="hover:text-primary">Terms of Use</Link>
+            <span className="opacity-40">|</span>
             <Link href="/privacy" className="hover:text-primary">Privacy Policy</Link>
+            <span className="opacity-40">|</span>
+            <span>
+              Developed and Designed by{" "}
+              <a
+                href="https://entertab.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold"
+                style={{ color: "#daa24a" }}
+              >
+                EnterTab
+              </a>
+            </span>
           </div>
         </div>
       </div>
+
+      <a
+        href="#top"
+        aria-label="Back to top"
+        className="fixed bottom-8 right-8 z-40 flex h-11 w-11 items-center justify-center rounded-full text-white shadow-lg transition-transform hover:-translate-y-1"
+        style={{ backgroundColor: "var(--color-primary)" }}
+      >
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+          <path d="M12 19V5M5 12l7-7 7 7" />
+        </svg>
+      </a>
     </footer>
   );
 }

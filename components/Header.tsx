@@ -26,27 +26,28 @@ export default function Header() {
   return (
     <header
       className={`sticky top-0 z-50 w-full transition-all duration-300 ${
-        scrolled ? "bg-surface/95 shadow-sm backdrop-blur border-b border-border" : "bg-transparent"
+        scrolled ? "backdrop-blur bg-white/70" : "bg-transparent"
       }`}
-      style={{ backgroundColor: scrolled ? "rgba(254,252,250,0.95)" : "transparent" }}
     >
-      <div className="container-max flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <Image src="/images/logo.svg" alt="Aramway" width={44} height={44} priority />
+      <div className="container-max flex h-20 items-center justify-between gap-4 sm:h-24">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
+          <Image src="/images/logo.svg" alt="Aramway" width={48} height={48} priority className="h-10 w-10 sm:h-12 sm:w-12" />
           <span className="font-heading text-lg font-extrabold tracking-tight text-ink">
             ARAMWAY
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav
+          className="hidden items-center rounded-full border border-white/40 bg-white/60 p-1.5 shadow-[0_4px_4px_rgba(0,0,0,0.01),0_1px_4px_rgba(0,0,0,0.04)] backdrop-blur-md lg:flex"
+        >
           {mainNav.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className={`text-sm font-semibold transition-colors hover:text-primary ${
-                  active ? "text-primary" : "text-ink"
+                className={`rounded-full px-4 py-2.5 text-sm font-medium transition-colors ${
+                  active ? "bg-white text-ink shadow-sm" : "text-muted hover:bg-white/60 hover:text-ink"
                 }`}
               >
                 {item.label}
@@ -55,7 +56,7 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden lg:block">
+        <div className="hidden shrink-0 lg:block">
           <Link href="/contact" className="btn-primary">
             Contact Us
           </Link>
@@ -83,14 +84,15 @@ export default function Header() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="overflow-hidden border-t border-border bg-surface lg:hidden"
+            className="overflow-hidden border-t border-border lg:hidden"
+            style={{ backgroundImage: "linear-gradient(180deg, rgba(244,233,214,0.95) 0%, #ffffff 70%)" }}
           >
             <div className="container-max flex flex-col gap-1 py-4">
               {mainNav.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="rounded-lg px-3 py-3 text-sm font-semibold text-ink hover:bg-cream-soft"
+                  className="rounded-full px-4 py-3 text-sm font-medium text-ink hover:bg-white/60"
                 >
                   {item.label}
                 </Link>

@@ -11,6 +11,9 @@
   --color-cream-soft: #f9f3e7;
   --color-border: #eae7e4;
   --color-surface: #fefcfa;
+  --color-gold-light: #e1bf8b;
+  --color-brown: #5a4539;
+  --color-accent-light: #c89d60;
 
   --font-heading: var(--font-ubuntu-sans), "Segoe UI", sans-serif;
   --font-body: var(--font-montserrat), "Segoe UI", sans-serif;
@@ -99,4 +102,50 @@ h1, h2, h3, h4, h5, h6 {
 
 .gold-text {
   color: var(--color-primary);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #946e33 52%, var(--color-gold-light) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-brown) 0%, var(--color-primary) 71.41%, var(--color-gold-light) 100%);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee-scroll 32s linear infinite;
+}
+
+@keyframes chevron-wobble {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
+
+.chevron-wobble {
+  animation: chevron-wobble 2s ease-in-out infinite;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
