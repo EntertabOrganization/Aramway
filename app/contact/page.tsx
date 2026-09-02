@@ -23,6 +23,7 @@ export default function ContactPage() {
         eyebrow="Get in Touch"
         title="Contact Us"
         description="We'd love to hear from you. Send us a message and we'll respond as soon as possible."
+        pattern
       />
 
       <section className="pb-20">

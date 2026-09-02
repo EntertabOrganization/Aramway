@@ -39,7 +39,7 @@ export default async function ServiceDetailPage({
 
   return (
     <>
-      <PageHero eyebrow="Service" title={service.title} description={service.heroSubheading} />
+      <PageHero eyebrow="Service" title={service.title} description={service.heroSubheading} pattern />
 
       <section className="py-16">
         <div className="container-max grid gap-12 lg:grid-cols-3">

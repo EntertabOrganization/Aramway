@@ -35,7 +35,7 @@ export default async function NewsPostPage({
 
   return (
     <>
-      <PageHero eyebrow={post.category} title={post.title} description={formatDate(post.date)} />
+      <PageHero eyebrow={post.category} title={post.title} description={formatDate(post.date)} pattern />
       <section className="pb-20">
         <div className="container-max max-w-2xl">
           <AnimateIn className="space-y-5 text-base leading-relaxed text-muted">

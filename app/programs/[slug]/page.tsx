@@ -36,7 +36,7 @@ export default async function ProgramDetailPage({
 
   return (
     <>
-      <PageHero eyebrow="Program" title={program.title} description={program.heroSubheading} />
+      <PageHero eyebrow="Program" title={program.title} description={program.heroSubheading} pattern />
 
       <section className="py-16">
         <div className="container-max grid items-start gap-12 lg:grid-cols-2">

@@ -35,10 +35,13 @@ export default function Footer() {
 
         <div className="mt-14 grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
-            <div className="flex items-center gap-2">
-              <Image src="/images/logo-footer.png" alt="Aramway" width={40} height={40} />
-              <span className="font-heading text-lg font-extrabold">ARAMWAY</span>
-            </div>
+            <Image
+              src="/images/logo-footer.png"
+              alt="Aramway"
+              width={140}
+              height={115}
+              className="h-[92px] w-auto"
+            />
             <p className="mt-4 max-w-xs text-sm text-muted">
               Offers strategic support for U.S. and GCC market expansion.
             </p>
@@ -50,7 +53,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-ink transition-opacity hover:opacity-80"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-white transition-opacity hover:opacity-80"
                   style={{ backgroundColor: "var(--color-gold-light)" }}
                 >
                   <s.Icon />

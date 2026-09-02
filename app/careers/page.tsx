@@ -22,6 +22,7 @@ export default function CareersPage() {
         eyebrow="Careers"
         title="Build your career at the crossroads of two markets"
         description="We're always looking for people who understand both the U.S. and MENA business worlds — and want to help others navigate between them."
+        pattern
       />
 
       <section className="py-16">

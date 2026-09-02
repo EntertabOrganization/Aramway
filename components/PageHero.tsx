@@ -5,15 +5,17 @@ export default function PageHero({
   title,
   description,
   pattern = false,
+  heroImage,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   description?: string;
   pattern?: boolean;
+  heroImage?: string;
 }) {
   return (
     <section
-      className="relative overflow-hidden py-24 sm:py-28"
+      className={`relative overflow-hidden py-24 sm:py-28 ${heroImage ? "pb-56 sm:pb-80" : ""}`}
       style={{
         backgroundImage:
           "linear-gradient(180deg, rgba(244,233,214,0.5) 0%, rgba(244,233,214,0) 60%)",
@@ -27,6 +29,17 @@ export default function PageHero({
             backgroundPosition: "bottom center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "contain",
+          }}
+        />
+      )}
+      {heroImage && (
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            backgroundImage: `url('${heroImage}')`,
+            backgroundPosition: "bottom center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "min(900px, 70%) auto",
           }}
         />
       )}

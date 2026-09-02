@@ -20,6 +20,7 @@ export default function NewsInsightsPage() {
         eyebrow="News & Insights"
         title="Market Intelligence, Curated"
         description="Keep up with our handpicked market insights, success stories, and expert opinions. Whether you're moving from MENA to the U.S. or exploring the Gulf, our programs offer local tips and support."
+        pattern
       />
 
       <section className="pb-16">

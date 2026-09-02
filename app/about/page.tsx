@@ -37,6 +37,7 @@ export default function AboutPage() {
         }
         description="We have offices and teams all around the world."
         pattern
+        heroImage="/images/about-hero-globe.webp"
       />
 
       <section id="mission" className="scroll-mt-28 py-16">
@@ -114,7 +115,7 @@ export default function AboutPage() {
             {industries.map((industry, i) => (
               <AnimateIn key={industry.name} delay={i * 0.05}>
                 <div className="flex h-full flex-col items-center gap-4 rounded-2xl border border-cream-deep bg-white p-6 text-center shadow-sm transition-all duration-300 hover:border-primary hover:shadow-[0_0_5px_rgba(204,145,56,0.57)]">
-                  <Image src={industry.icon} alt="" width={80} height={80} />
+                  <Image src={industry.icon} alt="" width={80} height={80} className="h-20 w-20" />
                   <p className="text-base font-medium text-ink">{industry.name}</p>
                 </div>
               </AnimateIn>

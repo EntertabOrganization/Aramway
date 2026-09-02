@@ -20,6 +20,7 @@ export default function BlogsPage() {
         eyebrow="News and Insights"
         title="Our Blogs"
         description="Strategic perspectives on cross-border expansion, market entry excellence, and building global enterprises that transform industries."
+        pattern
       />
 
       <section className="pb-16">

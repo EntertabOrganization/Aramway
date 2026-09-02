@@ -49,6 +49,15 @@ export default function ServicesPage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden pb-16 pt-28 sm:pb-20 sm:pt-32">
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/images/hero-overlay-pattern.svg')",
+            backgroundPosition: "top center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
+        />
         <div className="container-max text-center">
           <AnimateIn>
             <span className="section-eyebrow">Our Services</span>
@@ -68,56 +77,71 @@ export default function ServicesPage() {
           </AnimateIn>
         </div>
 
-        <div className="container-max mt-14 grid gap-6 lg:grid-cols-3">
-          <AnimateIn delay={0.15} className="lg:col-span-2">
-            <div className="relative aspect-[16/10] w-full overflow-hidden rounded-3xl border border-border sm:aspect-[16/9]">
-              <Image src="/images/services-hero.webp" alt="Aramway team collaborating" fill className="object-cover" />
-              <div className="absolute left-6 top-6 h-16 w-16 overflow-hidden rounded-full shadow-lg">
-                <Image src="/images/services-badge-logo.png" alt="" width={64} height={64} />
+        <div className="container-max mt-14 grid gap-6 lg:grid-cols-10">
+          {/* Photo card */}
+          <AnimateIn delay={0.15} className="lg:col-span-4">
+            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-cream-deep bg-white">
+              <div className="relative aspect-[4/3] w-full">
+                <Image src="/images/services-hero.webp" alt="Aramway team collaborating" fill className="object-cover" />
               </div>
-              <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 via-ink/20 to-transparent p-6 pt-16">
-                <p className="max-w-sm font-medium text-white">
+              <div className="relative flex-1 p-6 pt-10">
+                <Image
+                  src="/images/services-badge-logo.png"
+                  alt=""
+                  width={64}
+                  height={64}
+                  className="absolute -top-8 left-6 h-16 w-16 rounded-full border-4 border-white object-cover shadow-lg"
+                />
+                <p className="font-medium text-ink">
                   We support businesses in navigating complex regulatory environments
                 </p>
               </div>
             </div>
           </AnimateIn>
 
-          <div className="flex flex-col gap-6">
+          {/* Stat + Worldwide presence */}
+          <div className="flex flex-col gap-6 lg:col-span-3">
             <AnimateIn delay={0.2}>
-              <div className="rounded-3xl border border-border bg-white p-6">
-                <div className="gradient-gold flex h-11 w-11 items-center justify-center rounded-xl">
-                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M23 6l-9.5 9.5-5-5L1 18" />
-                    <path d="M17 6h6v6" />
-                  </svg>
+              <div className="rounded-3xl border border-cream-deep bg-white p-6">
+                <div className="flex items-start justify-between">
+                  <div className="gradient-gold flex h-11 w-11 items-center justify-center rounded-xl">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M23 6l-9.5 9.5-5-5L1 18" />
+                      <path d="M17 6h6v6" />
+                    </svg>
+                  </div>
+                  <span className="rounded-full bg-cream-soft px-3 py-1 text-xs font-semibold text-primary">+142%</span>
                 </div>
-                <p className="mt-4 font-heading text-3xl font-extrabold text-ink">
-                  <Counter value={250} prefix="$" suffix="M+" duration={2.2} />
+                <p className="mt-4 flex flex-wrap items-baseline gap-x-1.5">
+                  <span className="font-heading text-2xl font-extrabold text-ink">
+                    <Counter value={250} prefix="$" suffix="M+" duration={2.2} />
+                  </span>
+                  <span className="text-sm text-muted">Investment Deployed</span>
                 </p>
-                <p className="mt-1 text-sm font-semibold text-muted">Investment Deployed</p>
                 <p className="mt-2 text-xs leading-relaxed text-muted">
                   Improve each phase of the business journey.
                 </p>
               </div>
             </AnimateIn>
 
-            <AnimateIn delay={0.25}>
-              <div className="gradient-gold relative overflow-hidden rounded-3xl p-6 text-white">
-                <span
-                  className="inline-flex items-center gap-2 rounded-full border border-white/30 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur"
-                >
+            <AnimateIn delay={0.25} className="flex-1">
+              <div className="gradient-gold relative flex h-full flex-col overflow-hidden rounded-3xl p-6 text-white">
+                <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/30 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
                   Worldwide Presence
                 </span>
                 <h3 className="mt-4 font-heading text-xl font-bold leading-tight">
                   Cross Continental Excellence
                 </h3>
-                <div className="mt-5 grid grid-cols-2 gap-4">
-                  <div>
+                <div className="mt-5 grid grid-cols-2 gap-3">
+                  <div className="rounded-xl bg-white/10 p-3">
                     <p className="font-heading text-lg font-bold">US</p>
                     <p className="mt-0.5 text-xs text-white/80">Direct Market Access</p>
                   </div>
-                  <div>
+                  <div className="rounded-xl bg-white/10 p-3">
                     <p className="font-heading text-lg font-bold">MENA</p>
                     <p className="mt-0.5 text-xs text-white/80">Local Expertise</p>
                   </div>
@@ -125,26 +149,26 @@ export default function ServicesPage() {
               </div>
             </AnimateIn>
           </div>
-        </div>
-      </section>
 
-      {/* Cross Borders with Confidence */}
-      <section className="py-16 sm:py-20" style={{ backgroundColor: "var(--color-cream)" }}>
-        <div className="container-max grid items-center gap-10 lg:grid-cols-2">
-          <AnimateIn>
-            <h2 className="font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
-              Cross Borders with <br />
-              Confidence
-            </h2>
-            <p className="mt-5 max-w-lg text-base leading-relaxed text-muted">
-              We support businesses in navigating complex regulatory environments, identifying the
-              right partners, and executing market entry strategies tailored to each region&apos;s
-              unique landscape.
-            </p>
-          </AnimateIn>
-          <AnimateIn delay={0.1} className="flex items-center gap-4">
-            <Image src="/images/services-avatar-row.png" alt="" width={220} height={44} />
-            <p className="font-heading text-lg font-bold text-ink">Thousands Trust Aramway Group®</p>
+          {/* Cross Borders with Confidence */}
+          <AnimateIn delay={0.3} className="lg:col-span-3">
+            <div className="flex h-full flex-col rounded-3xl border border-cream-deep bg-white p-6">
+              <h3 className="font-heading text-2xl font-extrabold capitalize leading-tight text-ink">
+                Cross Borders With <br />
+                Confidence
+              </h3>
+              <p className="mt-4 text-sm leading-relaxed text-muted">
+                We support businesses in navigating complex regulatory environments, identifying the
+                right partners, and executing market entry strategies tailored to each region&apos;s
+                unique landscape.
+              </p>
+              <div className="mt-6">
+                <Image src="/images/services-avatar-row.png" alt="+500" width={140} height={28} className="h-[28px] w-[140px]" />
+              </div>
+              <span className="mt-4 inline-flex w-fit items-center rounded-full bg-cream-soft px-4 py-2 text-sm font-bold text-primary">
+                Thousands Trust Aramway Group®
+              </span>
+            </div>
           </AnimateIn>
         </div>
       </section>

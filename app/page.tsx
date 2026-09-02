@@ -45,7 +45,7 @@ export default function Home() {
           }}
         />
         <div
-          className="absolute inset-0 -z-10 opacity-30"
+          className="absolute inset-0 -z-10"
           style={{
             backgroundImage: "url('/images/hero-overlay-pattern.svg')",
             backgroundPosition: "top center",
@@ -170,7 +170,7 @@ export default function Home() {
             {stats.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.08}>
                 <div className="flex flex-col items-center rounded-2xl border border-cream-soft bg-white p-6 text-center shadow-sm">
-                  <Image src={stat.icon} alt="" width={64} height={64} className="mb-3" />
+                  <Image src={stat.icon} alt="" width={64} height={64} className="mb-3 h-16 w-16" />
                   <p className="font-heading text-3xl font-extrabold capitalize text-ink sm:text-4xl">
                     <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={stat.duration} />
                   </p>

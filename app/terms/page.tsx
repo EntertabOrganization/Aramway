@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function TermsPage() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Terms of Use" />
+      <PageHero eyebrow="Legal" title="Terms of Use" pattern />
       <section className="pb-20">
         <div className="container-max prose prose-neutral max-w-3xl text-sm leading-relaxed text-muted">
           <p>

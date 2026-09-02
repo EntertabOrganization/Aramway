@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function PrivacyPage() {
   return (
     <>
-      <PageHero eyebrow="Legal" title="Privacy Policy" />
+      <PageHero eyebrow="Legal" title="Privacy Policy" pattern />
       <section className="pb-20">
         <div className="container-max prose prose-neutral max-w-3xl text-sm leading-relaxed text-muted">
           <p>

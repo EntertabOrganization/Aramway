@@ -26,7 +26,7 @@ export default function Preloader() {
             animate={{ scale: [1, 1.06, 1] }}
             transition={{ duration: 1.6, repeat: Infinity, ease: "easeInOut" }}
           >
-            <Image src="/images/logo.svg" alt="Aramway" width={72} height={72} priority />
+            <Image src="/images/logo.svg" alt="Aramway" width={72} height={72} priority className="h-[72px] w-[72px]" />
           </motion.div>
           <p className="text-sm font-medium tracking-wide text-muted text-center px-6">
             Loading your gateway to

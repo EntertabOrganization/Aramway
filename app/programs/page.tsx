@@ -17,6 +17,7 @@ export default function ProgramsPage() {
         eyebrow="Programs"
         title="Structured paths to market entry"
         description="Each program combines strategy, compliance, and warm introductions into a single guided pathway."
+        pattern
       />
       <section className="pb-20">
         <div className="container-max grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
