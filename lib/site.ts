@@ -10,9 +10,9 @@ export const site = {
   offices: "Virginia, USA • Riyadh, KSA",
   founded: 2014,
   social: {
-    linkedin: "https://www.linkedin.com/company/aramway",
-    instagram: "https://www.instagram.com/aramway",
-    facebook: "https://www.facebook.com/aramway",
+    linkedin: "https://www.linkedin.com/in/aramway-group-llc-a2b53b110/",
+    instagram: "https://www.instagram.com/aramway/",
+    facebook: "http://www.facebook.com/aramwayllc",
     twitter: "https://twitter.com/aramway",
   },
 };

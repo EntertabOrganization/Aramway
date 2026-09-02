@@ -5,6 +5,7 @@ import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
 import CTASection from "@/components/CTASection";
 import ServiceCard from "@/components/ServiceCard";
+import ServiceIcon from "@/components/icons/ServiceIcon";
 import { services, getServiceBySlug } from "@/lib/services";
 
 export function generateStaticParams() {
@@ -81,9 +82,7 @@ export default async function ServiceDetailPage({
 
           <AnimateIn delay={0.1}>
             <div className="sticky top-28 rounded-2xl border border-border bg-cream-soft p-7">
-              <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-white text-2xl">
-                {service.icon}
-              </div>
+              <ServiceIcon slug={service.slug} size={56} />
               <h3 className="mt-5 font-heading text-lg font-bold text-ink">Interested in this service?</h3>
               <p className="mt-2 text-sm text-muted">
                 Tell us about your goals and we&apos;ll get back to you within one business day.

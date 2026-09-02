@@ -6,6 +6,7 @@ import Counter from "@/components/Counter";
 import ServiceCard from "@/components/ServiceCard";
 import ProgramCard from "@/components/ProgramCard";
 import ContactForm from "@/components/ContactForm";
+import { FlatIcon, WHY_ICONS, CONTACT_ICONS } from "@/components/icons/FlatIcon";
 import { stats, benefits, partners, site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { programs } from "@/lib/programs";
@@ -237,7 +238,7 @@ export default function Home() {
       {/* Programs */}
       <section className="py-16 sm:py-20">
         <div className="container-max">
-          <div className="mx-auto max-w-2xl text-center">
+          <div className="max-w-2xl">
             <AnimateIn>
               <span className="section-eyebrow">Market Entry Expertise</span>
             </AnimateIn>
@@ -296,12 +297,7 @@ export default function Home() {
             {whyCards.map((card, i) => (
               <AnimateIn key={card.title} delay={i * 0.1}>
                 <div className="flex flex-col items-center text-center sm:items-start sm:text-left">
-                  <div
-                    className="flex h-16 w-16 items-center justify-center rounded-full text-xl font-bold text-primary"
-                    style={{ backgroundColor: "rgba(225,191,139,0.2)" }}
-                  >
-                    {i + 1}
-                  </div>
+                  <FlatIcon paths={WHY_ICONS[card.title]} size={72} strokeWidth={3} />
                   <p className="mt-5 font-heading text-lg font-bold text-ink">{card.title}</p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">{card.description}</p>
                 </div>
@@ -313,13 +309,13 @@ export default function Home() {
 
       {/* Network */}
       <section className="py-16 sm:py-20">
-        <div className="container-max text-center">
+        <div className="container-max">
           <AnimateIn>
             <span className="section-eyebrow">Aramway Network</span>
             <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink sm:text-4xl">
               Partners in Growth
             </h2>
-            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-muted">
+            <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
               Our network of specialized companies delivers solutions for every business need,
               bridging markets and creating opportunities between the US and MENA.
             </p>
@@ -329,14 +325,14 @@ export default function Home() {
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="relative flex h-16 items-center justify-center transition-transform duration-300 hover:scale-90"
+                  className="relative flex h-24 items-center justify-center transition-transform duration-300 hover:scale-90"
                 >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={110}
-                    height={60}
-                    className="max-h-14 w-auto object-contain"
+                    width={160}
+                    height={90}
+                    className="max-h-24 w-auto object-contain"
                   />
                 </div>
               ))}
@@ -350,7 +346,16 @@ export default function Home() {
         <div className="container-max">
           <AnimateIn>
             <div className="gradient-gold relative overflow-hidden rounded-3xl pt-16 pb-0 text-center sm:pt-24">
-              <div className="container-max px-6 sm:px-16">
+              <div
+                className="pointer-events-none absolute inset-0"
+                style={{
+                  backgroundImage: "url('/images/footer-bg-shape.svg')",
+                  backgroundPosition: "center",
+                  backgroundRepeat: "no-repeat",
+                  backgroundSize: "contain",
+                }}
+              />
+              <div className="container-max relative px-6 sm:px-16">
                 <span
                   className="inline-flex items-center gap-2 rounded-full border border-white/30 px-4 py-1.5 text-xs font-semibold uppercase tracking-wide text-white backdrop-blur"
                   style={{ boxShadow: "inset 1px 1px 5px rgba(255,255,255,0.35), 0 0 8px rgba(255,255,255,0.08)" }}
@@ -435,17 +440,24 @@ export default function Home() {
               ].map((item) => (
                 <div
                   key={item.label}
-                  className="rounded-2xl p-6 transition-colors hover:bg-cream-soft"
+                  className="flex items-start gap-4 rounded-2xl p-6 transition-colors hover:bg-cream-soft"
                   style={{ backgroundColor: "#f9fbfb" }}
                 >
-                  <p className="text-xs font-semibold uppercase tracking-wide text-muted">{item.label}</p>
-                  {item.href ? (
-                    <a href={item.href} className="mt-1 block text-base font-semibold text-ink hover:text-primary">
-                      {item.value}
-                    </a>
-                  ) : (
-                    <p className="mt-1 text-base font-semibold text-ink">{item.value}</p>
-                  )}
+                  <FlatIcon
+                    paths={CONTACT_ICONS[item.label].paths}
+                    size={CONTACT_ICONS[item.label].size}
+                    strokeWidth={CONTACT_ICONS[item.label].strokeWidth}
+                  />
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">{item.label}</p>
+                    {item.href ? (
+                      <a href={item.href} className="mt-1 block text-base font-semibold text-ink hover:text-primary">
+                        {item.value}
+                      </a>
+                    ) : (
+                      <p className="mt-1 text-base font-semibold text-ink">{item.value}</p>
+                    )}
+                  </div>
                 </div>
               ))}
 

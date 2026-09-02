@@ -4,19 +4,34 @@ import { site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { programs } from "@/lib/programs";
 import Newsletter from "@/components/Newsletter";
+import { LinkedInIcon, InstagramIcon, FacebookIcon, XIcon } from "@/components/icons/SocialIcons";
 
 const socialLinks = [
-  { label: "LinkedIn", href: site.social.linkedin },
-  { label: "Instagram", href: site.social.instagram },
-  { label: "Facebook", href: site.social.facebook },
-  { label: "Twitter", href: site.social.twitter },
+  { label: "LinkedIn", href: site.social.linkedin, Icon: LinkedInIcon },
+  { label: "Instagram", href: site.social.instagram, Icon: InstagramIcon },
+  { label: "Facebook", href: site.social.facebook, Icon: FacebookIcon },
+  { label: "Twitter", href: site.social.twitter, Icon: XIcon },
 ];
 
 export default function Footer() {
   return (
-    <footer className="border-t border-border bg-ink text-white">
+    <footer className="relative overflow-hidden border-t border-border text-ink">
+      <div
+        className="absolute inset-0 -z-10"
+        style={{ backgroundImage: "linear-gradient(180deg, #FFFFFF 56%, #F4E9D666 100%)" }}
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -z-10"
+        style={{
+          backgroundImage: "url('/images/footer-bg-shape.svg')",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "contain",
+        }}
+      />
+
       <div className="container-max py-16">
-        <Newsletter variant="dark" />
+        <Newsletter variant="light" />
 
         <div className="mt-14 grid grid-cols-2 gap-10 md:grid-cols-5">
           <div className="col-span-2">
@@ -24,7 +39,9 @@ export default function Footer() {
               <Image src="/images/logo-footer.png" alt="Aramway" width={40} height={40} />
               <span className="font-heading text-lg font-extrabold">ARAMWAY</span>
             </div>
-            <p className="mt-4 max-w-xs text-sm text-white/60">{site.description}</p>
+            <p className="mt-4 max-w-xs text-sm text-muted">
+              Offers strategic support for U.S. and GCC market expansion.
+            </p>
             <div className="mt-5 flex gap-3">
               {socialLinks.map((s) => (
                 <a
@@ -33,18 +50,18 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="flex h-9 w-9 items-center justify-center rounded-full text-xs font-semibold text-white transition-opacity hover:opacity-80"
+                  className="flex h-9 w-9 items-center justify-center rounded-full text-ink transition-opacity hover:opacity-80"
                   style={{ backgroundColor: "var(--color-gold-light)" }}
                 >
-                  {s.label[0]}
+                  <s.Icon />
                 </a>
               ))}
             </div>
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-white/80">About</h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/60">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-ink">About</h3>
+            <ul className="mt-4 space-y-3 text-sm text-muted">
               <li><Link href="/#who" className="hover:text-primary">Who We Are</Link></li>
               <li><Link href="/#why" className="hover:text-primary">WHO, HOW, and WHY</Link></li>
               <li><Link href="/about#mission" className="hover:text-primary">Mission Statement</Link></li>
@@ -53,8 +70,8 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-white/80">Company</h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/60">
+            <h3 className="text-sm font-bold uppercase tracking-wide text-ink">Company</h3>
+            <ul className="mt-4 space-y-3 text-sm text-muted">
               <li><Link href="/contact" className="hover:text-primary">Contact Us</Link></li>
               <li><Link href="/careers" className="hover:text-primary">Careers</Link></li>
               <li><Link href="/blogs" className="hover:text-primary">Blogs</Link></li>
@@ -63,9 +80,9 @@ export default function Footer() {
           </div>
 
           <div>
-            <h3 className="text-sm font-bold uppercase tracking-wide text-white/80">Services</h3>
-            <ul className="mt-4 space-y-3 text-sm text-white/60">
-              {services.slice(0, 5).map((s) => (
+            <h3 className="text-sm font-bold uppercase tracking-wide text-ink">Services</h3>
+            <ul className="mt-4 space-y-3 text-sm text-muted">
+              {services.map((s) => (
                 <li key={s.slug}>
                   <Link href={`/services/${s.slug}`} className="hover:text-primary">
                     {s.title}
@@ -77,8 +94,8 @@ export default function Footer() {
         </div>
 
         <div className="mt-10">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-white/80">Programs</h3>
-          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-white/60">
+          <h3 className="text-sm font-bold uppercase tracking-wide text-ink">Programs</h3>
+          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted">
             {programs.map((p) => (
               <li key={p.slug}>
                 <Link href={`/programs/${p.slug}`} className="hover:text-primary">
@@ -89,7 +106,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 sm:flex-row">
+        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs sm:flex-row" style={{ color: "#6B5C4F" }}>
           <p>Copyright © {new Date().getFullYear()} ARAMWAY. All rights reserved.</p>
           <div className="flex flex-wrap items-center justify-center gap-2">
             <Link href="/terms" className="hover:text-primary">Terms of Use</Link>

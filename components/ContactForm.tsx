@@ -46,27 +46,25 @@ export default function ContactForm({ full = false }: { full?: boolean }) {
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-ink">Full Name *</label>
-          <input
-            required
-            name="name"
-            type="text"
-            className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-            placeholder="Jane Doe"
-          />
-        </div>
-        <div>
-          <label className="mb-1.5 block text-sm font-semibold text-ink">Email Address *</label>
-          <input
-            required
-            name="email"
-            type="email"
-            className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-            placeholder="jane@company.com"
-          />
-        </div>
+      <div>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">Full Name *</label>
+        <input
+          required
+          name="name"
+          type="text"
+          className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+          placeholder="Jane Doe"
+        />
+      </div>
+      <div>
+        <label className="mb-1.5 block text-sm font-semibold text-ink">Email Address *</label>
+        <input
+          required
+          name="email"
+          type="email"
+          className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
+          placeholder="jane@company.com"
+        />
       </div>
 
       {full && (

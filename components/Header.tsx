@@ -101,39 +101,23 @@ export default function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 8 }}
                       transition={{ duration: 0.18 }}
-                      className="absolute left-1/2 top-full z-50 mt-3 w-[92vw] max-w-[640px] -translate-x-1/2 rounded-2xl border border-cream-deep bg-white p-4 shadow-xl"
+                      className="absolute left-1/2 top-full z-50 mt-3 min-w-[260px] -translate-x-1/2 rounded-xl border border-cream-deep bg-white py-2 shadow-xl"
                     >
-                      <div className="grid gap-1 sm:grid-cols-2">
-                        {mega.items.map((entry) => (
-                          <Link
-                            key={entry.slug}
-                            href={`${mega.basePath}/${entry.slug}`}
-                            className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-cream-soft"
-                          >
-                            <span
-                              className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-lg"
-                              style={{ backgroundColor: "rgba(204,145,56,0.12)" }}
-                            >
-                              {entry.icon ?? "•"}
-                            </span>
-                            <span>
-                              <span className="block text-sm font-semibold text-ink">{entry.title}</span>
-                              <span className="mt-0.5 block text-xs leading-relaxed text-muted">
-                                {entry.shortDescription}
-                              </span>
-                            </span>
-                          </Link>
-                        ))}
-                      </div>
-                      <div className="mt-2 border-t border-border pt-3 text-right">
+                      {mega.items.map((entry) => (
+                        <Link
+                          key={entry.slug}
+                          href={`${mega.basePath}/${entry.slug}`}
+                          className="block px-5 py-2.5 text-sm font-medium text-muted transition-colors hover:bg-cream-soft hover:text-primary"
+                        >
+                          {entry.title}
+                        </Link>
+                      ))}
+                      <div className="mt-1 border-t border-border pt-1">
                         <Link
                           href={mega.basePath}
-                          className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary-dark"
+                          className="block px-5 py-2.5 text-sm font-semibold text-primary hover:text-primary-dark"
                         >
-                          View All {item.label}
-                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                            <path d="M9 6l6 6-6 6" />
-                          </svg>
+                          View All {item.label} →
                         </Link>
                       </div>
                     </motion.div>
@@ -226,9 +210,8 @@ export default function Header() {
                             <Link
                               key={entry.slug}
                               href={`${mega.basePath}/${entry.slug}`}
-                              className="flex items-center gap-2 rounded-lg px-4 py-2 text-sm text-muted hover:text-ink"
+                              className="block rounded-lg px-4 py-2 text-sm text-muted hover:text-ink"
                             >
-                              {entry.icon && <span>{entry.icon}</span>}
                               {entry.title}
                             </Link>
                           ))}
