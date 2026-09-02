@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
+import Link from "next/link";
 import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
 import FeaturedPostCard from "@/components/FeaturedPostCard";
-import PostCard from "@/components/PostCard";
+import PostFilterGrid from "@/components/PostFilterGrid";
 import Newsletter from "@/components/Newsletter";
-import { posts as allPosts, getPostsByType } from "@/lib/posts";
+import { posts as allPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -13,8 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function BlogsPage() {
-  const posts = getPostsByType("blog");
-  const [featured, ...rest] = posts;
+  const [featured, ...rest] = allPosts;
   const tags = Array.from(new Set(allPosts.flatMap((p) => p.tags))).slice(0, 6);
 
   return (
@@ -29,9 +30,13 @@ export default function BlogsPage() {
       <section className="pb-10">
         <div className="container-max flex flex-wrap gap-x-6 gap-y-2">
           {tags.map((tag) => (
-            <span key={tag} className="text-sm font-medium text-muted">
+            <Link
+              key={tag}
+              href={`/blogs?tag=${encodeURIComponent(tag)}#our-insights`}
+              className="text-sm font-medium text-muted transition-colors hover:text-primary"
+            >
               {tag}
-            </span>
+            </Link>
           ))}
         </div>
       </section>
@@ -52,7 +57,7 @@ export default function BlogsPage() {
         </div>
       </section>
 
-      <section className="pb-16">
+      <section id="our-insights" className="scroll-mt-28 pb-16">
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>
@@ -64,12 +69,10 @@ export default function BlogsPage() {
               </p>
             </AnimateIn>
           </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {rest.map((post, i) => (
-              <AnimateIn key={post.slug} delay={(i % 3) * 0.08}>
-                <PostCard post={post} basePath="/blogs" />
-              </AnimateIn>
-            ))}
+          <div className="mt-12">
+            <Suspense fallback={null}>
+              <PostFilterGrid posts={rest} />
+            </Suspense>
           </div>
         </div>
       </section>

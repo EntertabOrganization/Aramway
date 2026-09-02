@@ -32,12 +32,6 @@ export default function NewsInsightsPage() {
           ))}
         </div>
       </section>
-
-      <section className="pb-20">
-        <div className="container-max">
-          <Newsletter />
-        </div>
-      </section>
     </>
   );
 }
