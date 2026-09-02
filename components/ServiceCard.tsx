@@ -2,11 +2,13 @@ import Link from "next/link";
 import type { Service } from "@/lib/services";
 import ServiceIcon from "@/components/icons/ServiceIcon";
 
-export default function ServiceCard({ service }: { service: Service }) {
+export default function ServiceCard({ service, bordered = false }: { service: Service; bordered?: boolean }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10"
+      className={`group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 ${
+        bordered ? "border border-cream-deep hover:border-primary" : ""
+      }`}
     >
       <ServiceIcon slug={service.slug} size={64} />
       <h3 className="mt-5 font-heading text-lg font-bold text-ink">{service.title}</h3>

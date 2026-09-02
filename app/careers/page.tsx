@@ -1,66 +1,88 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
-import CTASection from "@/components/CTASection";
-import { site } from "@/lib/site";
+import CareerApplicationForm from "@/components/CareerApplicationForm";
 
 export const metadata: Metadata = {
   title: "Careers",
   description: "Join the Aramway Group team bridging the U.S. and MENA markets.",
 };
 
-const cultureValues = [
-  { title: "Work That Matters", description: "Every engagement helps a real business cross a border and grow." },
-  { title: "Global by Design", description: "Our teams span Virginia and Riyadh, with a genuinely cross-cultural way of working." },
-  { title: "Room to Grow", description: "Small teams and real client exposure mean fast learning curves." },
+const benefits = [
+  {
+    title: "International Exposure",
+    description: "Work on projects spanning US and MENA markets, gaining valuable cross-cultural experience.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="10" />
+        <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+      </>
+    ),
+  },
+  {
+    title: "Career Growth",
+    description: "Continuous learning opportunities and clear paths for professional development.",
+    icon: (
+      <>
+        <path d="M23 6l-9.5 9.5-5-5L1 18" />
+        <path d="M17 6h6v6" />
+      </>
+    ),
+  },
+  {
+    title: "Collaborative Culture",
+    description: "Join a diverse team of professionals committed to excellence and innovation.",
+    icon: (
+      <>
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+      </>
+    ),
+  },
 ];
 
 export default function CareersPage() {
   return (
     <>
       <PageHero
-        eyebrow="Careers"
-        title="Build your career at the crossroads of two markets"
-        description="We're always looking for people who understand both the U.S. and MENA business worlds — and want to help others navigate between them."
+        eyebrow="Our Careers"
+        title="Join Our Growing Team"
+        description="Thank you for your interest in working with us. Please fill out the form and send your application. We will get back to you!"
         pattern
       />
 
-      <section className="py-16">
+      <section className="pb-16">
         <div className="container-max grid gap-6 sm:grid-cols-3">
-          {cultureValues.map((value, i) => (
-            <AnimateIn key={value.title} delay={i * 0.08}>
-              <div className="h-full rounded-2xl border border-border bg-white p-7">
-                <h3 className="font-heading text-lg font-bold text-ink">{value.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted">{value.description}</p>
+          {benefits.map((benefit, i) => (
+            <AnimateIn key={benefit.title} delay={i * 0.08}>
+              <div className="h-full rounded-2xl border border-cream-deep bg-white p-7">
+                <div
+                  className="flex h-14 w-14 items-center justify-center rounded-full"
+                  style={{ backgroundColor: "rgba(225,191,139,0.2)" }}
+                >
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    {benefit.icon}
+                  </svg>
+                </div>
+                <h3 className="mt-5 font-heading text-lg font-bold text-ink">{benefit.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted">{benefit.description}</p>
               </div>
             </AnimateIn>
           ))}
         </div>
       </section>
 
-      <section className="py-16" style={{ backgroundColor: "var(--color-cream)" }}>
-        <div className="container-max text-center">
-          <AnimateIn className="mx-auto max-w-xl">
-            <span className="section-eyebrow">Open Roles</span>
-            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
-              No open positions right now
-            </h2>
-            <p className="mt-4 text-base text-muted">
-              We don&apos;t have any open roles posted at the moment, but we&apos;re always happy to hear
-              from talented people who want to work across the U.S. and MENA markets. Send us your
-              resume and tell us what you&apos;re looking for.
-            </p>
-            <a href={`mailto:${site.email}?subject=Career%20Inquiry`} className="btn-primary mt-7 inline-flex">
-              Send Your Resume
-            </a>
+      <section className="pb-20" style={{ backgroundColor: "var(--color-cream)" }}>
+        <div className="container-max py-16">
+          <AnimateIn className="text-center">
+            <h2 className="font-heading text-3xl font-extrabold text-ink sm:text-4xl">Career Application Form</h2>
+          </AnimateIn>
+          <AnimateIn delay={0.1} className="mx-auto mt-10 max-w-2xl">
+            <CareerApplicationForm />
           </AnimateIn>
         </div>
       </section>
-
-      <CTASection
-        title="Don't See the Right Role?"
-        description="We're growing fast across both markets. Reach out and let's talk about where you'd fit."
-      />
     </>
   );
 }

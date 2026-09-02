@@ -95,6 +95,8 @@ export default async function ServiceDetailPage({
         </div>
       </section>
 
+      <CTASection />
+
       <section className="py-16" style={{ backgroundColor: "var(--color-cream)" }}>
         <div className="container-max">
           <AnimateIn>
@@ -109,8 +111,6 @@ export default async function ServiceDetailPage({
           </div>
         </div>
       </section>
-
-      <CTASection />
     </>
   );
 }

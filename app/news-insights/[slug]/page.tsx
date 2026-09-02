@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
-import CTASection from "@/components/CTASection";
 import { getPostBySlug, getPostsByType } from "@/lib/posts";
 
 export function generateStaticParams() {
@@ -52,7 +51,6 @@ export default async function NewsPostPage({
           </AnimateIn>
         </div>
       </section>
-      <CTASection />
     </>
   );
 }

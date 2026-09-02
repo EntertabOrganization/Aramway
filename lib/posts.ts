@@ -7,6 +7,7 @@ export type Post = {
   category: string;
   tags: string[];
   type: "blog" | "news";
+  image?: string;
 };
 
 export const posts: Post[] = [
@@ -24,6 +25,7 @@ export const posts: Post[] = [
     category: "Consultancy & Management",
     tags: ["Market Entry", "Success Stories"],
     type: "blog",
+    image: "/images/services-hero.webp",
   },
   {
     slug: "united-states-market-entry-program",
@@ -39,6 +41,7 @@ export const posts: Post[] = [
     category: "Market Entry",
     tags: ["Market Entry", "United States"],
     type: "blog",
+    image: "/images/program-us.webp",
   },
   {
     slug: "sustainable-business-practices",
@@ -53,6 +56,7 @@ export const posts: Post[] = [
     category: "Market Entry",
     tags: ["Sustainability", "Market Entry"],
     type: "blog",
+    image: "/images/program-intl-trade.webp",
   },
   {
     slug: "economic-growth-ksa-industry",
@@ -67,6 +71,7 @@ export const posts: Post[] = [
     category: "International Trade & Global Commerce",
     tags: ["International Trade", "Trade Policy"],
     type: "blog",
+    image: "/images/program-saudi-gcc.webp",
   },
   {
     slug: "russia-wto-carbon-border-dispute",

@@ -172,7 +172,7 @@ export default function ServicesPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service, i) => (
               <AnimateIn key={service.slug} delay={(i % 3) * 0.08}>
-                <ServiceCard service={service} />
+                <ServiceCard service={service} bordered />
               </AnimateIn>
             ))}
           </div>

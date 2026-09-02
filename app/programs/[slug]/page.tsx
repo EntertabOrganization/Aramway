@@ -63,19 +63,15 @@ export default async function ProgramDetailPage({
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">{program.intro}</p>
           </AnimateIn>
-        </div>
-      </section>
 
-      <section className="py-16" style={{ backgroundColor: "var(--color-cream-soft)" }}>
-        <div className="container-max">
-          <AnimateIn className="mb-12">
+          <AnimateIn delay={0.1} className="mb-12 mt-16">
             <h2 className="font-heading text-3xl font-extrabold text-ink sm:text-4xl">Program Services Include</h2>
           </AnimateIn>
 
           {program.timeline ? (
             <ProgramTimeline phases={program.timeline} />
           ) : (
-            <ul className="mx-auto max-w-2xl space-y-4">
+            <ul className="max-w-2xl space-y-4">
               {program.benefits.map((item) => (
                 <li key={item} className="flex gap-3">
                   <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">
@@ -87,7 +83,7 @@ export default async function ProgramDetailPage({
             </ul>
           )}
 
-          <div className="mt-10 text-center">
+          <div className="mt-10">
             <Link href="/contact" className="btn-primary">
               Apply to This Program
             </Link>
