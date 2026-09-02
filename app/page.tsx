@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import AnimateIn from "@/components/AnimateIn";
@@ -27,11 +28,15 @@ const whyCards = [
   },
 ];
 
+export const metadata: Metadata = {
+  title: { absolute: "Aramway" },
+};
+
 export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden pb-24 pt-24 sm:pb-32 sm:pt-32">
+      <section className="hero-font relative overflow-hidden pb-24 pt-24 sm:pb-32 sm:pt-32">
         <div
           className="absolute inset-0 -z-10"
           style={{
@@ -39,7 +44,7 @@ export default function Home() {
           }}
         />
         <div
-          className="absolute inset-0 -z-10 opacity-70"
+          className="absolute inset-0 -z-10 opacity-30"
           style={{
             backgroundImage: "url('/images/hero-overlay-pattern.svg')",
             backgroundPosition: "top center",
@@ -48,7 +53,7 @@ export default function Home() {
           }}
         />
         <div
-          className="absolute inset-0 -z-10"
+          className="absolute inset-0 -z-10 opacity-15"
           style={{
             backgroundImage: "url('/images/hero-bg.webp')",
             backgroundPosition: "bottom center",
@@ -58,7 +63,35 @@ export default function Home() {
         />
         <div className="container-max text-center">
           <AnimateIn>
-            <span className="section-eyebrow">Global Business Solutions</span>
+            <span className="section-eyebrow">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                <path
+                  d="M7.5 5.25L7.11311 6.29554C6.6058 7.6665 6.35215 8.352 5.85209 8.8521C5.35202 9.35213 4.66653 9.60577 3.29554 10.1131L2.25 10.5L3.29554 10.8869C4.66653 11.3942 5.35202 11.6479 5.85209 12.1479C6.35215 12.648 6.6058 13.3335 7.11311 14.7044L7.5 15.75L7.88685 14.7044C8.39423 13.3335 8.64787 12.648 9.1479 12.1479C9.648 11.6479 10.3335 11.3942 11.7044 10.8869L12.75 10.5L11.7044 10.1131C10.3335 9.60577 9.648 9.35213 9.1479 8.8521C8.64787 8.352 8.39423 7.6665 7.88685 6.29554L7.5 5.25Z"
+                  fill="url(#paint0_linear_eyebrow)"
+                  stroke="#CC9138"
+                  strokeWidth="0.4"
+                  strokeLinejoin="round"
+                />
+                <path
+                  d="M13.5 2.25L13.3342 2.69809C13.1168 3.28565 13.0081 3.57944 12.7937 3.79375C12.5795 4.00806 12.2857 4.11677 11.6981 4.33419L11.25 4.5L11.6981 4.66581C12.2857 4.88323 12.5795 4.99194 12.7937 5.20625C13.0081 5.42056 13.1168 5.71435 13.3342 6.30191L13.5 6.75L13.6658 6.30191C13.8832 5.71435 13.9919 5.42056 14.2063 5.20624C14.4205 4.99194 14.7143 4.88323 15.3019 4.66581L15.75 4.5L15.3019 4.33419C14.7143 4.11677 14.4205 4.00806 14.2063 3.79375C13.9919 3.57944 13.8832 3.28565 13.6658 2.69809L13.5 2.25Z"
+                  fill="url(#paint1_linear_eyebrow)"
+                  stroke="#CC9138"
+                  strokeWidth="0.2"
+                  strokeLinejoin="round"
+                />
+                <defs>
+                  <linearGradient id="paint0_linear_eyebrow" x1="2.27365" y1="5.25" x2="13.3967" y2="5.95777" gradientUnits="userSpaceOnUse">
+                    <stop offset="0.277841" stopColor="#CC9138" />
+                    <stop offset="0.768087" stopColor="#E1BF8B" />
+                  </linearGradient>
+                  <linearGradient id="paint1_linear_eyebrow" x1="11.2601" y1="2.25" x2="16.0272" y2="2.55333" gradientUnits="userSpaceOnUse">
+                    <stop offset="0.277841" stopColor="#CC9138" />
+                    <stop offset="0.768087" stopColor="#E1BF8B" />
+                  </linearGradient>
+                </defs>
+              </svg>
+              Global Business Solutions
+            </span>
           </AnimateIn>
           <AnimateIn delay={0.1}>
             <h1 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-6xl">
@@ -87,10 +120,29 @@ export default function Home() {
             </div>
           </AnimateIn>
           <AnimateIn delay={0.4}>
-            <div className="chevron-wobble mt-16 flex justify-center text-primary/50">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 9l6 6 6-6" />
-              </svg>
+            <div className="chevron-wobble mt-16 flex justify-center">
+              <a
+                href="#who"
+                aria-label="Scroll to Who We Are"
+                className="wobble-icon inline-flex items-center justify-center"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="40" viewBox="0 0 24 40" fill="none">
+                  <mask id="path-1-inside-scroll" fill="white">
+                    <path d="M0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12V28C24 34.6274 18.6274 40 12 40C5.37258 40 0 34.6274 0 28V12Z" />
+                  </mask>
+                  <path
+                    d="M24 12H22V28H24H26V12H24ZM0 28H2V12H0H-2V28H0ZM12 40V38C6.47715 38 2 33.5228 2 28H0H-2C-2 35.732 4.26801 42 12 42V40ZM24 28H22C22 33.5228 17.5228 38 12 38V40V42C19.732 42 26 35.732 26 28H24ZM12 0V2C17.5228 2 22 6.47715 22 12H24H26C26 4.26801 19.732 -2 12 -2V0ZM12 0V-2C4.26801 -2 -2 4.26801 -2 12H0H2C2 6.47715 6.47715 2 12 2V0Z"
+                    fill="#CC9138"
+                    fillOpacity="0.5"
+                    mask="url(#path-1-inside-scroll)"
+                  />
+                  <path
+                    d="M10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12V16C14 17.1046 13.1046 18 12 18C10.8954 18 10 17.1046 10 16V12Z"
+                    fill="#CC9138"
+                    fillOpacity="0.5"
+                  />
+                </svg>
+              </a>
             </div>
           </AnimateIn>
         </div>
@@ -128,12 +180,12 @@ export default function Home() {
           </div>
 
           <div className="mt-20 grid items-center gap-12 lg:grid-cols-2">
-            <AnimateIn>
+            <AnimateIn className="lg:order-2">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
                 <Image src="/images/who-we-are.webp" alt="Aramway team" fill className="object-cover" />
               </div>
             </AnimateIn>
-            <AnimateIn delay={0.1}>
+            <AnimateIn delay={0.1} className="lg:order-1">
               <h3 className="font-heading text-2xl font-semibold capitalize leading-tight text-ink sm:text-3xl">
                 Your Gateway to <span className="gold-text">International Success</span>
               </h3>

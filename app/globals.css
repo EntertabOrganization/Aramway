@@ -35,6 +35,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
+.hero-font,
+.hero-font * {
+  font-family: "Ubuntu Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    "Noto Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
 .container-max {
   max-width: var(--container-max);
   margin-inline: auto;
@@ -139,6 +145,36 @@ h1, h2, h3, h4, h5, h6 {
 
 .chevron-wobble {
   animation: chevron-wobble 2s ease-in-out infinite;
+}
+
+@keyframes wobble-vertical {
+  16.65% {
+    transform: translateY(8px);
+  }
+  33.3% {
+    transform: translateY(-6px);
+  }
+  49.95% {
+    transform: translateY(4px);
+  }
+  66.6% {
+    transform: translateY(-2px);
+  }
+  83.25% {
+    transform: translateY(1px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.wobble-icon {
+  transition: filter 0.2s ease;
+}
+
+.wobble-icon:hover {
+  animation: wobble-vertical 1s ease-in-out;
+  filter: drop-shadow(0 4px 8px rgba(204, 145, 56, 0.45));
 }
 
 .no-scrollbar {
