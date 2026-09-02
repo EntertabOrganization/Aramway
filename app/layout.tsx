@@ -5,6 +5,7 @@ import { site } from "@/lib/site";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
+import NewsletterPopup from "@/components/NewsletterPopup";
 
 const ubuntuSans = Ubuntu_Sans({
   subsets: ["latin"],
@@ -49,6 +50,7 @@ export default function RootLayout({
         <Header />
         <main>{children}</main>
         <Footer />
+        <NewsletterPopup />
       </body>
     </html>
   );

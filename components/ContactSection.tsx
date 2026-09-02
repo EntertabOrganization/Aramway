@@ -50,6 +50,7 @@ export default function ContactSection({
                 <FlatIcon
                   paths={CONTACT_ICONS[item.label].paths}
                   size={CONTACT_ICONS[item.label].size}
+                  viewBoxSize={CONTACT_ICONS[item.label].viewBoxSize}
                   strokeWidth={CONTACT_ICONS[item.label].strokeWidth}
                 />
                 <div>

@@ -6,7 +6,7 @@ export default function ProgramCard({ program }: { program: Program }) {
   return (
     <Link
       href={`/programs/${program.slug}`}
-      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10"
+      className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream-deep bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
     >
       <div className="relative h-48 w-full overflow-hidden">
         <Image
@@ -21,7 +21,7 @@ export default function ProgramCard({ program }: { program: Program }) {
         <h3 className="font-heading text-lg font-bold text-ink">{program.title}</h3>
         <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{program.shortDescription}</p>
         <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
-          Explore program
+          learn more
           <span className="transition-transform group-hover:translate-x-1">→</span>
         </span>
       </div>

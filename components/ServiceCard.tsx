@@ -6,8 +6,7 @@ export default function ServiceCard({ service }: { service: Service }) {
   return (
     <Link
       href={`/services/${service.slug}`}
-      className="group flex h-full flex-col rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10"
-      style={{ borderColor: "var(--color-cream-deep)" }}
+      className="group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10"
     >
       <ServiceIcon slug={service.slug} size={64} />
       <h3 className="mt-5 font-heading text-lg font-bold text-ink">{service.title}</h3>

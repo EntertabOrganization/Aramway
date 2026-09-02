@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { site } from "@/lib/site";
 import { services } from "@/lib/services";
-import { programs } from "@/lib/programs";
 import Newsletter from "@/components/Newsletter";
 import { LinkedInIcon, InstagramIcon, FacebookIcon, XIcon } from "@/components/icons/SocialIcons";
 
@@ -94,19 +93,6 @@ export default function Footer() {
               ))}
             </ul>
           </div>
-        </div>
-
-        <div className="mt-10">
-          <h3 className="text-sm font-bold uppercase tracking-wide text-ink">Programs</h3>
-          <ul className="mt-4 flex flex-wrap gap-x-8 gap-y-2 text-sm text-muted">
-            {programs.map((p) => (
-              <li key={p.slug}>
-                <Link href={`/programs/${p.slug}`} className="hover:text-primary">
-                  {p.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 text-xs sm:flex-row" style={{ color: "#6B5C4F" }}>

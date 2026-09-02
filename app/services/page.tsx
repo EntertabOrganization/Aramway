@@ -3,6 +3,7 @@ import Image from "next/image";
 import AnimateIn from "@/components/AnimateIn";
 import Counter from "@/components/Counter";
 import ServiceCard from "@/components/ServiceCard";
+import HeroPhotoCard from "@/components/HeroPhotoCard";
 import ContactSection from "@/components/ContactSection";
 import { services } from "@/lib/services";
 
@@ -80,23 +81,10 @@ export default function ServicesPage() {
         <div className="container-max mt-14 grid gap-6 lg:grid-cols-10">
           {/* Photo card */}
           <AnimateIn delay={0.15} className="lg:col-span-4">
-            <div className="relative flex h-full flex-col overflow-hidden rounded-3xl border border-cream-deep bg-white">
-              <div className="relative aspect-[4/3] w-full">
-                <Image src="/images/services-hero.webp" alt="Aramway team collaborating" fill className="object-cover" />
-              </div>
-              <div className="relative flex-1 p-6 pt-10">
-                <Image
-                  src="/images/services-badge-logo.png"
-                  alt=""
-                  width={64}
-                  height={64}
-                  className="absolute -top-8 left-6 h-16 w-16 rounded-full border-4 border-white object-cover shadow-lg"
-                />
-                <p className="font-medium text-ink">
-                  We support businesses in navigating complex regulatory environments
-                </p>
-              </div>
-            </div>
+            <HeroPhotoCard
+              image="/images/services-hero.webp"
+              caption="We support businesses in navigating complex regulatory environments"
+            />
           </AnimateIn>
 
           {/* Stat + Worldwide presence */}
@@ -192,7 +180,7 @@ export default function ServicesPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 sm:py-20" style={{ backgroundColor: "var(--color-cream)" }}>
+      <section className="py-16 sm:py-20">
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>

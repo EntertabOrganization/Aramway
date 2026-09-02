@@ -1,17 +1,26 @@
 export function FlatIcon({
   paths,
   size = 72,
+  viewBoxSize = 72,
   strokeWidth = 3,
   className = "",
 }: {
   paths: string[];
   size?: number;
+  viewBoxSize?: number;
   strokeWidth?: number;
   className?: string;
 }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 72 72" fill="none" className={className}>
-      <rect width="72" height="72" rx="36" fill="#E1BF8B" fillOpacity="0.2" />
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox={`0 0 ${viewBoxSize} ${viewBoxSize}`}
+      fill="none"
+      className={className}
+    >
+      <rect width={viewBoxSize} height={viewBoxSize} rx={viewBoxSize / 2} fill="#E1BF8B" fillOpacity="0.2" />
       {paths.map((d, i) => (
         <path key={i} d={d} stroke="#CC9138" strokeWidth={strokeWidth} strokeLinecap="round" strokeLinejoin="round" />
       ))}
@@ -40,9 +49,10 @@ export const WHY_ICONS: Record<string, string[]> = {
   ],
 };
 
-export const CONTACT_ICONS: Record<string, { paths: string[]; size: number; strokeWidth: number }> = {
+export const CONTACT_ICONS: Record<string, { paths: string[]; size: number; viewBoxSize: number; strokeWidth: number }> = {
   Email: {
     size: 48,
+    viewBoxSize: 48,
     strokeWidth: 2,
     paths: [
       "M34 19L25.009 24.727C24.7039 24.9042 24.3573 24.9976 24.0045 24.9976C23.6517 24.9976 23.3051 24.9042 23 24.727L14 19",
@@ -51,6 +61,7 @@ export const CONTACT_ICONS: Record<string, { paths: string[]; size: number; stro
   },
   Phone: {
     size: 48,
+    viewBoxSize: 48,
     strokeWidth: 2,
     paths: [
       "M25.832 28.568C26.0385 28.6628 26.2712 28.6845 26.4917 28.6294C26.7122 28.5744 26.9073 28.4458 27.045 28.265L27.4 27.8C27.5863 27.5516 27.8279 27.35 28.1056 27.2111C28.3833 27.0723 28.6895 27 29 27H32C32.5304 27 33.0391 27.2107 33.4142 27.5858C33.7893 27.9609 34 28.4696 34 29V32C34 32.5304 33.7893 33.0391 33.4142 33.4142C33.0391 33.7893 32.5304 34 32 34C27.2261 34 22.6477 32.1036 19.2721 28.7279C15.8964 25.3523 14 20.7739 14 16C14 15.4696 14.2107 14.9609 14.5858 14.5858C14.9609 14.2107 15.4696 14 16 14H19C19.5304 14 20.0391 14.2107 20.4142 14.5858C20.7893 14.9609 21 15.4696 21 16V19C21 19.3105 20.9277 19.6167 20.7889 19.8944C20.65 20.1721 20.4484 20.4137 20.2 20.6L19.732 20.951C19.5484 21.0912 19.419 21.2906 19.3658 21.5154C19.3126 21.7401 19.3388 21.9764 19.44 22.184C20.8067 24.9599 23.0544 27.2048 25.832 28.568Z",
@@ -58,6 +69,7 @@ export const CONTACT_ICONS: Record<string, { paths: string[]; size: number; stro
   },
   Offices: {
     size: 48,
+    viewBoxSize: 48,
     strokeWidth: 2,
     paths: [
       "M32 22C32 26.993 26.461 32.193 24.601 33.799C24.4277 33.9293 24.2168 33.9998 24 33.9998C23.7832 33.9998 23.5723 33.9293 23.399 33.799C21.539 32.193 16 26.993 16 22C16 19.8783 16.8429 17.8434 18.3431 16.3431C19.8434 14.8429 21.8783 14 24 14C26.1217 14 28.1566 14.8429 29.6569 16.3431C31.1571 17.8434 32 19.8783 32 22Z",
