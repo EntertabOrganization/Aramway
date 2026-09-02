@@ -4,10 +4,12 @@ export default function PageHero({
   eyebrow,
   title,
   description,
+  pattern = false,
 }: {
   eyebrow: string;
   title: React.ReactNode;
   description?: string;
+  pattern?: boolean;
 }) {
   return (
     <section
@@ -17,18 +19,29 @@ export default function PageHero({
           "linear-gradient(180deg, rgba(244,233,214,0.5) 0%, rgba(244,233,214,0) 60%)",
       }}
     >
+      {pattern && (
+        <div
+          className="pointer-events-none absolute inset-0 -z-10"
+          style={{
+            backgroundImage: "url('/images/hero-overlay-pattern.svg')",
+            backgroundPosition: "bottom center",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "contain",
+          }}
+        />
+      )}
       <div className="container-max text-center">
         <AnimateIn>
           <span className="section-eyebrow">{eyebrow}</span>
         </AnimateIn>
         <AnimateIn delay={0.1}>
-          <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+          <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
             {title}
           </h1>
         </AnimateIn>
         {description && (
           <AnimateIn delay={0.2}>
-            <p className="mx-auto mt-5 max-w-2xl text-base text-muted sm:text-lg">{description}</p>
+            <p className="mx-auto mt-5 max-w-2xl text-base text-muted sm:text-xl">{description}</p>
           </AnimateIn>
         )}
       </div>

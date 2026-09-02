@@ -5,8 +5,8 @@ import AnimateIn from "@/components/AnimateIn";
 import Counter from "@/components/Counter";
 import ServiceCard from "@/components/ServiceCard";
 import ProgramCard from "@/components/ProgramCard";
-import ContactForm from "@/components/ContactForm";
-import { FlatIcon, WHY_ICONS, CONTACT_ICONS } from "@/components/icons/FlatIcon";
+import ContactSection from "@/components/ContactSection";
+import { FlatIcon, WHY_ICONS } from "@/components/icons/FlatIcon";
 import { stats, benefits, partners, site } from "@/lib/site";
 import { services } from "@/lib/services";
 import { programs } from "@/lib/programs";
@@ -102,7 +102,7 @@ export default function Home() {
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.2}>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-muted sm:text-lg">
+            <p className="mx-auto mt-6 max-w-2xl text-base text-muted sm:text-xl">
               Empowering talented entrepreneurs and enterprises with strategic connections,
               investment opportunities, and market expansion solutions across continents.
             </p>
@@ -154,12 +154,12 @@ export default function Home() {
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>
-              <h2 className="font-heading text-3xl font-extrabold capitalize text-ink sm:text-4xl">
+              <h2 className="font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
                 WHO <span className="gradient-text">WE</span> ARE
               </h2>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <p className="mt-5 text-base text-muted sm:text-lg">
+              <p className="mt-5 text-base text-muted sm:text-xl">
                 A trusted partner for entrepreneurs and businesses navigating the complexities of
                 US and MENA market expansion.
               </p>
@@ -212,7 +212,7 @@ export default function Home() {
         <div className="container-max grid gap-10 lg:grid-cols-2">
           <AnimateIn className="lg:sticky lg:top-28 lg:self-start">
             <span className="section-eyebrow">Solutions that Drive Growth</span>
-            <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink sm:text-4xl">
+            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
               Services to elevate your business
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
@@ -243,7 +243,7 @@ export default function Home() {
               <span className="section-eyebrow">Market Entry Expertise</span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink sm:text-4xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
                 Our Programs
               </h2>
             </AnimateIn>
@@ -282,7 +282,7 @@ export default function Home() {
               <span className="section-eyebrow">Building Partnerships</span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h2 className="mt-5 font-heading text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
                 Connecting Entrepreneurs to Global Opportunities
               </h2>
             </AnimateIn>
@@ -312,7 +312,7 @@ export default function Home() {
         <div className="container-max">
           <AnimateIn>
             <span className="section-eyebrow">Aramway Network</span>
-            <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink sm:text-4xl">
+            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
               Partners in Growth
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
@@ -362,7 +362,7 @@ export default function Home() {
                 >
                   Solutions that Drive Growth
                 </span>
-                <h2 className="mx-auto mt-5 max-w-2xl font-heading text-3xl font-extrabold text-white sm:text-4xl">
+                <h2 className="mx-auto mt-5 max-w-2xl font-heading text-4xl font-extrabold capitalize text-white sm:text-5xl">
                   Ready to Expand Your Market?
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-white/85">
@@ -406,78 +406,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Contact */}
-      <section className="py-16 sm:py-20">
-        <div className="container-max">
-          <div className="mx-auto max-w-2xl text-center">
-            <AnimateIn>
-              <span className="section-eyebrow">Get in Touch</span>
-              <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink sm:text-4xl">
-                Ready to Expand Your Business?
-              </h2>
-              <p className="mt-5 text-base leading-relaxed text-muted">
-                Take the first step toward international growth. Contact us today to discuss how
-                we can help you achieve your expansion goals.
-              </p>
-            </AnimateIn>
-          </div>
-
-          <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <AnimateIn>
-              <div className="rounded-2xl border border-border bg-white p-7 shadow-sm sm:p-8">
-                <h3 className="font-heading text-xl font-bold text-ink">Send Us a Message</h3>
-                <div className="mt-5">
-                  <ContactForm />
-                </div>
-              </div>
-            </AnimateIn>
-            <AnimateIn delay={0.1} className="flex flex-col gap-4">
-              <h3 className="font-heading text-xl font-bold text-ink">Get in Touch</h3>
-              {[
-                { label: "Email", value: site.email, href: `mailto:${site.email}` },
-                { label: "Phone", value: site.phone, href: `tel:${site.phoneHref}` },
-                { label: "Offices", value: site.offices, href: undefined },
-              ].map((item) => (
-                <div
-                  key={item.label}
-                  className="flex items-start gap-4 rounded-2xl p-6 transition-colors hover:bg-cream-soft"
-                  style={{ backgroundColor: "#f9fbfb" }}
-                >
-                  <FlatIcon
-                    paths={CONTACT_ICONS[item.label].paths}
-                    size={CONTACT_ICONS[item.label].size}
-                    strokeWidth={CONTACT_ICONS[item.label].strokeWidth}
-                  />
-                  <div>
-                    <p className="text-xs font-semibold uppercase tracking-wide text-muted">{item.label}</p>
-                    {item.href ? (
-                      <a href={item.href} className="mt-1 block text-base font-semibold text-ink hover:text-primary">
-                        {item.value}
-                      </a>
-                    ) : (
-                      <p className="mt-1 text-base font-semibold text-ink">{item.value}</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-
-              <div className="gradient-gold relative mt-2 overflow-hidden rounded-2xl px-7 py-8">
-                <h4 className="font-heading text-lg font-bold text-white">Apply to Our Programs</h4>
-                <p className="mt-2 max-w-sm text-sm text-white/85">
-                  Join our market entry program. Submit your application for review within 48
-                  hours.
-                </p>
-                <Link
-                  href="/programs"
-                  className="mt-5 inline-flex items-center justify-center gap-2 rounded-lg border border-white/70 px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-white/10"
-                >
-                  View Our Programs
-                </Link>
-              </div>
-            </AnimateIn>
-          </div>
-        </div>
-      </section>
+      <ContactSection />
     </>
   );
 }

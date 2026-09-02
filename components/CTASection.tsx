@@ -18,7 +18,7 @@ export default function CTASection({
               className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full opacity-30 blur-3xl"
               style={{ background: "var(--color-primary)" }}
             />
-            <h2 className="font-heading text-3xl font-extrabold text-white sm:text-4xl">{title}</h2>
+            <h2 className="font-heading text-4xl font-extrabold capitalize text-white sm:text-5xl">{title}</h2>
             <p className="mx-auto mt-4 max-w-xl text-white/60">{description}</p>
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
               <Link href="/contact" className="btn-primary">

@@ -41,7 +41,7 @@ export default function CareersPage() {
         <div className="container-max text-center">
           <AnimateIn className="mx-auto max-w-xl">
             <span className="section-eyebrow">Open Roles</span>
-            <h2 className="mt-5 font-heading text-3xl font-extrabold text-ink">
+            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
               No open positions right now
             </h2>
             <p className="mt-4 text-base text-muted">
