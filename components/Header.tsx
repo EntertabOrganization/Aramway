@@ -129,8 +129,8 @@ export default function Header() {
         </nav>
 
         <div className="hidden shrink-0 lg:block">
-          <Link href="/contact" className="btn-primary">
-            Contact Us
+          <Link href="/book-consultation" className="btn-primary">
+            Book a Consultation
           </Link>
         </div>
 
@@ -221,8 +221,8 @@ export default function Header() {
                   </div>
                 );
               })}
-              <Link href="/contact" className="btn-primary mt-2 justify-center">
-                Contact Us
+              <Link href="/book-consultation" className="btn-primary mt-2 justify-center">
+                Book a Consultation
               </Link>
             </div>
           </motion.nav>

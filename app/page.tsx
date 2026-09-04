@@ -372,10 +372,10 @@ export default function Home() {
                 </p>
                 <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
                   <Link
-                    href="/contact"
+                    href="/book-consultation"
                     className="inline-flex items-center justify-center gap-2 rounded-lg bg-white px-7 py-3 font-semibold text-ink shadow-[0_0_10px_rgba(0,0,0,0.2)] transition-transform hover:-translate-y-0.5"
                   >
-                    Schedule Consultations
+                    Book a Consultation
                   </Link>
                   <Link
                     href="/services"
