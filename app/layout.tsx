@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import NewsletterPopup from "@/components/NewsletterPopup";
+import MarketTicker from "@/components/MarketTicker";
 
 const ubuntuSans = Ubuntu_Sans({
   subsets: ["latin"],
@@ -45,12 +46,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${ubuntuSans.variable} ${montserrat.variable} antialiased`}>
+      <body className={`${ubuntuSans.variable} ${montserrat.variable} antialiased pb-9 sm:pb-10`}>
         <Preloader />
         <Header />
         <main>{children}</main>
         <Footer />
         <NewsletterPopup />
+        <MarketTicker />
       </body>
     </html>
   );

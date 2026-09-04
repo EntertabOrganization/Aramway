@@ -121,7 +121,7 @@ export default function Footer() {
       <a
         href="#top"
         aria-label="Back to top"
-        className="fixed bottom-8 right-8 z-40 flex h-11 w-11 items-center justify-center rounded-full text-white shadow-lg transition-transform hover:-translate-y-1"
+        className="fixed bottom-14 right-8 z-40 flex h-11 w-11 items-center justify-center rounded-full text-white shadow-lg transition-transform hover:-translate-y-1 sm:bottom-16"
         style={{ backgroundColor: "var(--color-primary)" }}
       >
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
