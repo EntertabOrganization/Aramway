@@ -105,13 +105,13 @@ export default function Footer() {
             <span>
               Developed and Designed by{" "}
               <a
-                href="https://entertab.com"
+                href="https://entertab.net"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold"
+                className="text-[11px] font-normal"
                 style={{ color: "#daa24a" }}
               >
-                EnterTab
+                entertab
               </a>
             </span>
           </div>

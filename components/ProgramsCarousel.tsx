@@ -31,7 +31,7 @@ export default function ProgramsCarousel({ programs }: { programs: Program[] }) 
           </div>
         ))}
       </div>
-      <div className="mt-6 flex justify-center gap-3 lg:hidden">
+      <div className="mt-6 flex justify-center gap-3">
         <button
           type="button"
           onClick={() => scrollByAmount("prev")}
