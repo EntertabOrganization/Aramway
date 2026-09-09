@@ -30,7 +30,7 @@ export default function Newsletter({ variant = "light" }: { variant?: "light" | 
       }`}
     >
       <h3 className={`font-heading text-2xl font-bold ${dark ? "text-white" : "text-ink"}`}>
-        Stay Updated with Aramway
+        Stay Updated with ARAMWAY
       </h3>
       <p className={`max-w-md text-sm ${dark ? "text-white/60" : "text-muted"}`}>
         Get market insights, expansion strategies, and program updates delivered to your inbox.
@@ -60,7 +60,7 @@ export default function Newsletter({ variant = "light" }: { variant?: "light" | 
       <label className={`flex max-w-md items-start gap-2 text-xs ${dark ? "text-white/40" : "text-muted"}`}>
         <input type="checkbox" required className="mt-0.5" />
         <span>
-          I agree to receive marketing communications from Aramway and accept the{" "}
+          I agree to receive marketing communications from ARAMWAY and accept the{" "}
           <a href="/privacy" className="underline hover:text-primary">
             Privacy Policy
           </a>

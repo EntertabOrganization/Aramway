@@ -94,13 +94,13 @@ export default function NewsletterPopup() {
               <div className="py-4 text-center">
                 <h3 className="font-heading text-2xl font-bold text-ink">Thanks for subscribing!</h3>
                 <p className="mt-2 text-sm text-muted">
-                  We&apos;ve got your email — watch your inbox for updates from Aramway.
+                  We&apos;ve got your email — watch your inbox for updates from ARAMWAY.
                 </p>
               </div>
             ) : (
               <>
                 <h3 className="pr-8 text-center font-heading text-2xl font-bold text-ink">
-                  Stay Updated with Aramway
+                  Stay Updated with ARAMWAY
                 </h3>
                 <p className="mt-3 text-center text-sm text-muted">
                   Get market insights, expansion strategies, and program updates delivered to your

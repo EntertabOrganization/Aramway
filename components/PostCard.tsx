@@ -51,7 +51,7 @@ export default function PostCard({ post, basePath }: { post: Post; basePath?: st
     return (
       <Link
         href={href}
-        className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream-deep bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
+        className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cream-deep bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
       >
         <div className="relative h-44 w-full overflow-hidden">
           <Image
@@ -62,7 +62,7 @@ export default function PostCard({ post, basePath }: { post: Post; basePath?: st
           />
           <CategoryBadge category={post.category} />
         </div>
-        <div className="flex flex-1 flex-col p-6">
+        <div className="flex flex-1 flex-col p-8">
           <div className="flex items-center gap-1.5 text-xs font-medium text-muted">
             <CalendarIcon />
             {formatDate(post.date)}
@@ -81,7 +81,7 @@ export default function PostCard({ post, basePath }: { post: Post; basePath?: st
   return (
     <Link
       href={href}
-      className="group flex h-full flex-col rounded-2xl border border-border bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10"
+      className="group flex h-full flex-col rounded-3xl border border-border bg-white p-9 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10"
     >
       <div className="flex items-center gap-1.5 text-xs font-medium text-muted">
         <CalendarIcon />

@@ -65,7 +65,7 @@ export default function Footer() {
             <h3 className="text-sm font-bold uppercase tracking-wide text-ink">About</h3>
             <ul className="mt-4 space-y-3 text-sm text-muted">
               <li><Link href="/#who" className="hover:text-primary">Who We Are</Link></li>
-              <li><Link href="/#why" className="hover:text-primary">WHO, HOW, and WHY</Link></li>
+              <li><Link href="/#why" className="hover:text-primary">Who, How, and Why</Link></li>
               <li><Link href="/about#mission" className="hover:text-primary">Mission Statement</Link></li>
               <li><Link href="/about#story" className="hover:text-primary">Our Story</Link></li>
             </ul>

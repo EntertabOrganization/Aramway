@@ -31,7 +31,7 @@ export const posts: Post[] = [
     slug: "united-states-market-entry-program",
     title: "The United States Market Entry Program",
     excerpt:
-      "A closer look at how Aramway's U.S. Market Entry Program takes GCC businesses from assessment to launch.",
+      "A closer look at how ARAMWAY'S U.S. Market Entry Program takes GCC businesses from assessment to launch.",
     content: [
       "Entering the U.S. market is rarely just a matter of registering a company. Regulatory complexity, cultural differences, and the sheer scale of the market can overwhelm even well-resourced teams.",
       "Our U.S. Market Entry Program was built to compress the learning curve: a structured path from market assessment through entity formation, compliance, and warm introductions to partners who matter.",

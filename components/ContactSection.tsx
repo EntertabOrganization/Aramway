@@ -25,7 +25,7 @@ export default function ContactSection({
         <div className="mx-auto max-w-2xl text-center">
           <AnimateIn>
             <span className="section-eyebrow">{eyebrow}</span>
-            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">{title}</h2>
+            <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">{title}</h2>
             <p className="mt-5 text-base leading-relaxed text-muted">{description}</p>
           </AnimateIn>
         </div>

@@ -288,7 +288,7 @@ export const programs: Program[] = [
           "The assessment reviews your organization's AI maturity, data infrastructure, and operational readiness, identifying gaps, goals, and risk tolerance to guide the program's next phases.",
       },
       {
-        question: "How does Aramway assess AI risks?",
+        question: "How does ARAMWAY assess AI risks?",
         answer:
           "We review your existing and planned AI use cases to identify risks related to privacy, bias, security, and operational impact, so governance efforts focus on the areas that matter most.",
       },

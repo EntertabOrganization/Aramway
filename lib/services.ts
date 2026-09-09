@@ -19,7 +19,7 @@ export const services: Service[] = [
     heroSubheading:
       "We support companies, particularly from the GCC region, in navigating the U.S. business landscape, and help American companies find opportunities in the Gulf.",
     intro:
-      "Aramway develops customized market entry strategies for Gulf-based organizations expanding to the U.S., and for American companies exploring the Gulf. Through local expertise and an established network of partners, we deliver a smooth, compliant, and effective expansion process from day one.",
+      "ARAMWAY develops customized market entry strategies for Gulf-based organizations expanding to the U.S., and for American companies exploring the Gulf. Through local expertise and an established network of partners, we deliver a smooth, compliant, and effective expansion process from day one.",
     deliverables: [
       "Tailored market entry and expansion strategies for GCC organizations",
       "Strategic partnership development in the Gulf region for U.S. companies",
@@ -30,7 +30,7 @@ export const services: Service[] = [
     ],
     faqs: [
       {
-        question: "What makes Aramway different from other market entry consultancies?",
+        question: "What makes ARAMWAY different from other market entry consultancies?",
         answer:
           "We operate on the ground in both Virginia and Riyadh, giving clients direct, dual-market execution rather than remote advisory alone.",
       },

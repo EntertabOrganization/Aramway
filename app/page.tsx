@@ -4,7 +4,7 @@ import Image from "next/image";
 import AnimateIn from "@/components/AnimateIn";
 import Counter from "@/components/Counter";
 import ServiceCard from "@/components/ServiceCard";
-import ProgramCard from "@/components/ProgramCard";
+import ProgramsCarousel from "@/components/ProgramsCarousel";
 import ContactSection from "@/components/ContactSection";
 import { FlatIcon, WHY_ICONS } from "@/components/icons/FlatIcon";
 import { stats, benefits, partners, site } from "@/lib/site";
@@ -95,10 +95,10 @@ export default function Home() {
             </span>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <h1 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-6xl">
+            <h1 className="mx-auto mt-6 max-w-4xl font-heading text-4xl font-extrabold leading-tight text-ink sm:text-6xl">
               Bridging <span style={{ color: "var(--color-accent-light)" }}>US &amp; MENA Markets</span>
               <br />
-              For Global Growth
+              for Global Growth
             </h1>
           </AnimateIn>
           <AnimateIn delay={0.2}>
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="container-max">
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>
-              <h2 className="font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+              <h2 className="font-heading text-4xl font-extrabold text-ink sm:text-5xl">
                 WHO <span className="gradient-text">WE</span> ARE
               </h2>
             </AnimateIn>
@@ -169,9 +169,9 @@ export default function Home() {
           <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-8 lg:grid-cols-4">
             {stats.map((stat, i) => (
               <AnimateIn key={stat.label} delay={i * 0.08}>
-                <div className="flex flex-col items-center rounded-2xl border border-cream-soft bg-white p-6 text-center shadow-sm">
+                <div className="flex flex-col items-center rounded-3xl border border-cream-soft bg-white p-8 text-center shadow-sm">
                   <Image src={stat.icon} alt="" width={64} height={64} className="mb-3 h-16 w-16" />
-                  <p className="font-heading text-3xl font-extrabold capitalize text-ink sm:text-4xl">
+                  <p className="font-heading text-3xl font-extrabold text-ink sm:text-4xl">
                     <Counter value={stat.value} prefix={stat.prefix} suffix={stat.suffix} duration={stat.duration} />
                   </p>
                   <p className="mt-1 text-xs font-medium text-muted sm:text-sm">{stat.label}</p>
@@ -187,7 +187,7 @@ export default function Home() {
               </div>
             </AnimateIn>
             <AnimateIn delay={0.1} className="lg:order-1">
-              <h3 className="font-heading text-2xl font-semibold capitalize leading-tight text-ink sm:text-3xl">
+              <h3 className="font-heading text-2xl font-semibold leading-tight text-ink sm:text-3xl">
                 Your Gateway to <span className="gold-text">International Success</span>
               </h3>
               <p className="mt-5 text-base leading-relaxed text-muted">
@@ -212,7 +212,7 @@ export default function Home() {
         <div className="container-max grid gap-10 lg:grid-cols-2">
           <AnimateIn className="lg:sticky lg:top-28 lg:self-start">
             <span className="section-eyebrow">Solutions that Drive Growth</span>
-            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+            <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
               Services to elevate your business
             </h2>
             <p className="mt-5 max-w-md text-base leading-relaxed text-muted">
@@ -243,7 +243,7 @@ export default function Home() {
               <span className="section-eyebrow">Market Entry Expertise</span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
                 Our Programs
               </h2>
             </AnimateIn>
@@ -255,16 +255,7 @@ export default function Home() {
             </AnimateIn>
           </div>
           <AnimateIn delay={0.2}>
-            <div className="no-scrollbar mt-12 flex snap-x snap-mandatory gap-6 overflow-x-auto pb-4">
-              {programs.map((program) => (
-                <div
-                  key={program.slug}
-                  className="w-[85%] shrink-0 snap-start sm:w-[60%] lg:w-[calc(33.333%-16px)]"
-                >
-                  <ProgramCard program={program} />
-                </div>
-              ))}
-            </div>
+            <ProgramsCarousel programs={programs} />
           </AnimateIn>
           <div className="mt-8 text-center">
             <Link href="/programs" className="btn-primary">
@@ -282,7 +273,7 @@ export default function Home() {
               <span className="section-eyebrow">Building Partnerships</span>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
                 Connecting Entrepreneurs to Global Opportunities
               </h2>
             </AnimateIn>
@@ -312,7 +303,7 @@ export default function Home() {
         <div className="container-max">
           <AnimateIn>
             <span className="section-eyebrow">Aramway Network</span>
-            <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+            <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
               Partners in Growth
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-muted">
@@ -325,14 +316,14 @@ export default function Home() {
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="relative flex h-24 items-center justify-center transition-transform duration-300 hover:scale-90"
+                  className="relative flex h-32 items-center justify-center transition-transform duration-300 hover:scale-90 sm:h-36"
                 >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={160}
-                    height={90}
-                    className="max-h-24 w-auto object-contain"
+                    width={220}
+                    height={130}
+                    className="max-h-32 w-auto object-contain sm:max-h-36"
                   />
                 </div>
               ))}
@@ -362,7 +353,7 @@ export default function Home() {
                 >
                   Solutions that Drive Growth
                 </span>
-                <h2 className="mx-auto mt-5 max-w-2xl font-heading text-4xl font-extrabold capitalize text-white sm:text-5xl">
+                <h2 className="mx-auto mt-5 max-w-2xl font-heading text-4xl font-extrabold text-white sm:text-5xl">
                   Ready to Expand Your Market?
                 </h2>
                 <p className="mx-auto mt-4 max-w-xl text-white/85">

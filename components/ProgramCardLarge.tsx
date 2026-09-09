@@ -6,7 +6,7 @@ export default function ProgramCardLarge({ program }: { program: Program }) {
   return (
     <Link
       href={`/programs/${program.slug}`}
-      className="group flex h-full flex-col rounded-3xl border border-cream-deep bg-white p-6 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
+      className="group flex h-full flex-col rounded-3xl border border-cream-deep bg-white p-8 transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10"
     >
       <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl">
         <Image

@@ -23,7 +23,6 @@ export const mainNav = [
   { label: "Services", href: "/services" },
   { label: "Programs", href: "/programs" },
   { label: "Blogs", href: "/blogs" },
-  { label: "Careers", href: "/careers" },
   { label: "News & Insights", href: "/news-insights" },
 ];
 

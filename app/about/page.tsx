@@ -44,7 +44,7 @@ export default function AboutPage() {
         <div className="container-max">
           <div className="grid gap-8 lg:grid-cols-2">
             <AnimateIn>
-              <h2 className="font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
+              <h2 className="font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
                 Our Mission: Support more talents and entrepreneurs
               </h2>
             </AnimateIn>
@@ -80,7 +80,7 @@ export default function AboutPage() {
           <AnimateIn delay={0.1} className="lg:w-[60%]">
             <span className="section-eyebrow">Our Story</span>
             <h2 className="mt-5 font-heading text-2xl font-extrabold leading-tight text-ink sm:text-3xl">
-              Real-world impact: How businesses leverage Aramway&apos;s expertise.
+              Real-world impact: How businesses leverage ARAMWAY&apos;S expertise.
             </h2>
             <p className="mt-5 text-base leading-relaxed text-muted">
               We are dedicated to providing our clients with tailored solutions, leveraging local
@@ -101,7 +101,7 @@ export default function AboutPage() {
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>
               <span className="section-eyebrow">Industry Expertise</span>
-              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
                 Industries of Interests
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted">

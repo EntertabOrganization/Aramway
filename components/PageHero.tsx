@@ -48,7 +48,7 @@ export default function PageHero({
           <span className="section-eyebrow">{eyebrow}</span>
         </AnimateIn>
         <AnimateIn delay={0.1}>
-          <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
+          <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
             {title}
           </h1>
         </AnimateIn>

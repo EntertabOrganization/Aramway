@@ -6,7 +6,7 @@ export default function ServiceCard({ service, bordered = false }: { service: Se
   return (
     <Link
       href={`/services/${service.slug}`}
-      className={`group flex h-full flex-col rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 ${
+      className={`group flex h-full flex-col rounded-3xl p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-primary/10 ${
         bordered ? "border border-cream-deep hover:border-primary" : ""
       }`}
     >

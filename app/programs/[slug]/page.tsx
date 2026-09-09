@@ -58,7 +58,7 @@ export default async function ProgramDetailPage({
             <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl sm:aspect-[21/9]">
               <Image src={program.heroImage ?? program.image} alt={program.title} fill className="object-cover" priority />
             </div>
-            <h1 className="mt-8 max-w-3xl font-heading text-3xl font-extrabold capitalize leading-tight text-ink sm:text-4xl">
+            <h1 className="mt-8 max-w-3xl font-heading text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
               {program.title}
             </h1>
             <p className="mt-5 max-w-3xl text-base leading-relaxed text-muted">{program.intro}</p>
@@ -138,7 +138,7 @@ export default async function ProgramDetailPage({
             <div className="mx-auto max-w-2xl text-center">
               <AnimateIn>
                 <span className="section-eyebrow">Common Questions</span>
-                <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+                <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
                   Frequently Asked Questions
                 </h2>
                 <p className="mt-5 text-base leading-relaxed text-muted">

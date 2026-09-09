@@ -10,7 +10,7 @@ function formatDate(date: string) {
 
 export default function ExternalNewsCard({ item }: { item: ExternalNewsItem }) {
   return (
-    <div className="group flex h-full flex-col overflow-hidden rounded-2xl border border-cream-deep bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10">
+    <div className="group flex h-full flex-col overflow-hidden rounded-3xl border border-cream-deep bg-white transition-all duration-300 hover:-translate-y-1 hover:border-primary hover:shadow-xl hover:shadow-primary/10">
       {item.image ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img
@@ -25,7 +25,7 @@ export default function ExternalNewsCard({ item }: { item: ExternalNewsItem }) {
         />
       ) : null}
 
-      <div className="flex flex-1 flex-col p-6">
+      <div className="flex flex-1 flex-col p-8">
         <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs font-medium text-muted">
           <span>{formatDate(item.date)}</span>
           <span className="text-primary">·</span>

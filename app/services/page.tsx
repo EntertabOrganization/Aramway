@@ -64,7 +64,7 @@ export default function ServicesPage() {
             <span className="section-eyebrow">Our Services</span>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold capitalize leading-tight text-ink sm:text-5xl">
+            <h1 className="mx-auto mt-5 max-w-3xl font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
               Strategic Services to <span className="gold-text">Elevate</span>
               <br />
               Your Global Business
@@ -90,7 +90,7 @@ export default function ServicesPage() {
           {/* Stat + Worldwide presence */}
           <div className="flex flex-col gap-6 lg:col-span-3">
             <AnimateIn delay={0.2}>
-              <div className="rounded-3xl border border-cream-deep bg-white p-6">
+              <div className="rounded-3xl border border-cream-deep bg-white p-8">
                 <div className="flex items-start justify-between">
                   <div className="gradient-gold flex h-11 w-11 items-center justify-center rounded-xl">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -113,7 +113,7 @@ export default function ServicesPage() {
             </AnimateIn>
 
             <AnimateIn delay={0.25} className="flex-1">
-              <div className="gradient-gold relative flex h-full flex-col overflow-hidden rounded-3xl p-6 text-white">
+              <div className="gradient-gold relative flex h-full flex-col overflow-hidden rounded-3xl p-8 text-white">
                 <span className="inline-flex w-fit items-center gap-1.5 rounded-full border border-white/30 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10" />
@@ -140,8 +140,8 @@ export default function ServicesPage() {
 
           {/* Cross Borders with Confidence */}
           <AnimateIn delay={0.3} className="lg:col-span-3">
-            <div className="flex h-full flex-col rounded-3xl border border-cream-deep bg-white p-6">
-              <h3 className="font-heading text-2xl font-extrabold capitalize leading-tight text-ink">
+            <div className="flex h-full flex-col rounded-3xl border border-cream-deep bg-white p-8">
+              <h3 className="font-heading text-2xl font-extrabold leading-tight text-ink">
                 Cross Borders With <br />
                 Confidence
               </h3>
@@ -154,7 +154,7 @@ export default function ServicesPage() {
                 <Image src="/images/services-avatar-row.png" alt="+500" width={140} height={28} className="h-[28px] w-[140px]" />
               </div>
               <span className="mt-4 inline-flex w-fit items-center rounded-full bg-cream-soft px-4 py-2 text-sm font-bold text-primary">
-                Thousands Trust Aramway Group®
+                Thousands Trust ARAMWAY GROUP®
               </span>
             </div>
           </AnimateIn>
@@ -165,7 +165,7 @@ export default function ServicesPage() {
       <section className="py-16 sm:py-20">
         <div className="container-max">
           <AnimateIn className="mx-auto max-w-2xl text-center">
-            <h2 className="font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+            <h2 className="font-heading text-4xl font-extrabold text-ink sm:text-5xl">
               Complete Service Portfolio
             </h2>
           </AnimateIn>
@@ -185,7 +185,7 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-2xl text-center">
             <AnimateIn>
               <span className="section-eyebrow">Common Questions</span>
-              <h2 className="mt-5 font-heading text-4xl font-extrabold capitalize text-ink sm:text-5xl">
+              <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
                 Frequently Asked Questions
               </h2>
               <p className="mt-5 text-base leading-relaxed text-muted">
