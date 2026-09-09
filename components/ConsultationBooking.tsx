@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { services } from "@/lib/services";
 import { countries, timeSlots, toDateKey, isSampleDateAvailable, isSampleSlotBooked } from "@/lib/consultation";
+import PhoneField from "@/components/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -262,14 +263,7 @@ export default function ConsultationBooking() {
                 />
               </div>
               <div>
-                <label className="mb-1.5 block text-sm font-semibold text-ink">Phone Number *</label>
-                <input
-                  required
-                  name="phone"
-                  type="tel"
-                  placeholder="+1 (000) 000-0000"
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-                />
+                <PhoneField name="phone" label="Phone Number" required />
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-ink">Country *</label>

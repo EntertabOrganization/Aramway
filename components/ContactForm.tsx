@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { services } from "@/lib/services";
 import { programs } from "@/lib/programs";
+import PhoneField from "@/components/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -71,14 +72,7 @@ export default function ContactForm({ full = false }: { full?: boolean }) {
         <>
           <div className="grid gap-4 sm:grid-cols-2">
             <div>
-              <label className="mb-1.5 block text-sm font-semibold text-ink">Phone Number *</label>
-              <input
-                required
-                name="phone"
-                type="tel"
-                className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-                placeholder="+1 (000) 000-0000"
-              />
+              <PhoneField name="phone" label="Phone Number" required />
             </div>
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-ink">Service Type</label>

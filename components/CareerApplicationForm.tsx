@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PhoneField from "@/components/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -115,14 +116,7 @@ export default function CareerApplicationForm() {
           />
         </div>
         <div>
-          <label className="mb-1.5 block text-sm font-semibold text-ink">Phone Number *</label>
-          <input
-            required
-            name="phone"
-            type="tel"
-            placeholder="E.g. +1 300 400 5000"
-            className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-          />
+          <PhoneField name="phone" label="Phone Number" required />
         </div>
       </div>
 
