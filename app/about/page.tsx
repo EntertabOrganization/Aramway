@@ -87,7 +87,7 @@ export default function AboutPage() {
               expertise and resources to support successful market entry and expansion between the
               U.S. and GCC by building sustainable partnerships and offering strategic insights.
             </p>
-            <div className="mt-7 grid grid-cols-2 sm:grid-cols-4">
+            <div className="mt-7 grid grid-cols-2 gap-6 sm:grid-cols-4">
               {coreValues.map((value, i) => (
                 <ValueBadge key={value} label={value} delay={i * 0.1} />
               ))}

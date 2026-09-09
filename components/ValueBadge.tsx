@@ -9,10 +9,10 @@ export default function ValueBadge({ label, delay = 0 }: { label: string; delay?
       whileInView={{ opacity: 1, rotate: 0, scale: 1 }}
       viewport={{ once: true, margin: "-60px" }}
       transition={{ duration: 0.6, delay, ease: "easeOut" }}
-      className="flex min-h-[120px] w-full items-center justify-center bg-contain bg-center bg-no-repeat p-4 text-center"
+      className="flex min-h-[130px] w-full items-center justify-center bg-contain bg-center bg-no-repeat p-3 text-center"
       style={{ backgroundImage: "url('/images/value-badge-shape.svg')" }}
-    >
-      <span className="font-body text-base font-medium text-ink sm:text-lg">{label}</span>
+    > 
+      <span className="font-body text-sm font-medium text-ink sm:text-base">{label}</span>
     </motion.div>
   );
 }
