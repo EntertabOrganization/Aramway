@@ -65,10 +65,8 @@ export default function PostDetail({
 
       <section className="pb-20">
         <div className="container-max max-w-3xl">
-          <AnimateIn className="space-y-5 text-base leading-relaxed text-ink">
-            {post.content.map((paragraph, i) => (
-              <p key={i}>{paragraph}</p>
-            ))}
+          <AnimateIn>
+            <div className="post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
           </AnimateIn>
           <AnimateIn delay={0.1} className="mt-8 flex flex-wrap gap-2">
             {post.tags.map((tag) => (

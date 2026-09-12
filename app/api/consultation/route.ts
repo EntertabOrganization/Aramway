@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+import { backendFetch } from "@/lib/backend";
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { name, email, date, time, company_website } = body;
+  const { name, email, date, time, company_website, ...rest } = body;
 
   // Honeypot field — bots fill hidden fields, humans don't.
   if (company_website) {
@@ -13,10 +14,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
   }
 
-  // Wire this up to Aramway's internal calendar system (booking confirmation,
-  // meeting link, and team notification) once it's ready. For now, log the
-  // request server-side so nothing is lost.
-  console.log("New consultation booking request:", body);
+  const res = await backendFetch("/consultations", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, date, time, ...rest }),
+  });
+
+  if (!res.ok) {
+    const error = await res.json().catch(() => null);
+    return NextResponse.json(
+      { ok: false, error: error?.error ?? "Failed to submit booking" },
+      { status: res.status }
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

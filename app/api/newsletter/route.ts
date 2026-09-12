@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { backendFetch } from "@/lib/backend";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -8,8 +9,19 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Missing email" }, { status: 400 });
   }
 
-  // Wire this up to a mailing list provider (Mailchimp, MailPoet, etc.) when credentials are available.
-  console.log("New newsletter subscription:", email);
+  const res = await backendFetch("/subscribers", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email }),
+  });
+
+  if (!res.ok && res.status !== 409) {
+    const error = await res.json().catch(() => null);
+    return NextResponse.json(
+      { ok: false, error: error?.error ?? "Failed to subscribe" },
+      { status: res.status }
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

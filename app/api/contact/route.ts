@@ -1,8 +1,9 @@
 import { NextResponse } from "next/server";
+import { backendFetch } from "@/lib/backend";
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { name, email, message, company_website } = body;
+  const { name, email, message, company_website, ...rest } = body;
 
   // Honeypot field — bots fill hidden fields, humans don't.
   if (company_website) {
@@ -13,9 +14,16 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
   }
 
-  // Wire this up to an email provider (e.g. Resend) via RESEND_API_KEY once available.
-  // For now, log the submission server-side so nothing is lost.
-  console.log("New contact form submission:", body);
+  const res = await backendFetch("/contact", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ name, email, message, ...rest }),
+  });
+
+  if (!res.ok) {
+    const error = await res.json().catch(() => null);
+    return NextResponse.json({ ok: false, error: error?.error ?? "Failed to send message" }, { status: res.status });
+  }
 
   return NextResponse.json({ ok: true });
 }

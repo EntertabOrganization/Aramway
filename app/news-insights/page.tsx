@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 };
 
 export default async function NewsInsightsPage() {
-  const posts = getPostsByType("news");
+  const posts = await getPostsByType("news");
   const externalNews = await getExternalNews();
 
   return (

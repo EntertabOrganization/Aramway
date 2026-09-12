@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { backendFetch } from "@/lib/backend";
 
 export async function POST(request: Request) {
   const form = await request.formData();
@@ -10,24 +11,15 @@ export async function POST(request: Request) {
     return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
   }
 
-  const resume = form.get("resume") as File | null;
-  const coverLetter = form.get("coverLetter") as File | null;
+  const res = await backendFetch("/careers", { method: "POST", body: form });
 
-  // Wire this up to an ATS or email provider once available.
-  console.log("New career application:", {
-    firstName,
-    lastName,
-    email,
-    phone: form.get("phone"),
-    address: form.get("address"),
-    city: form.get("city"),
-    country: form.get("country"),
-    expectedSalary: form.get("expectedSalary"),
-    position: form.get("position"),
-    startDate: form.get("startDate"),
-    resume: resume ? { name: resume.name, size: resume.size } : null,
-    coverLetter: coverLetter ? { name: coverLetter.name, size: coverLetter.size } : null,
-  });
+  if (!res.ok) {
+    const error = await res.json().catch(() => null);
+    return NextResponse.json(
+      { ok: false, error: error?.error ?? "Failed to submit application" },
+      { status: res.status }
+    );
+  }
 
   return NextResponse.json({ ok: true });
 }

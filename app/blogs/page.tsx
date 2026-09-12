@@ -6,7 +6,7 @@ import AnimateIn from "@/components/AnimateIn";
 import FeaturedPostCard from "@/components/FeaturedPostCard";
 import PostFilterGrid from "@/components/PostFilterGrid";
 import Newsletter from "@/components/Newsletter";
-import { posts as allPosts } from "@/lib/posts";
+import { getAllPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "Blogs",
@@ -14,8 +14,9 @@ export const metadata: Metadata = {
     "Strategic perspectives on cross-border expansion, market entry excellence, and building global enterprises.",
 };
 
-export default function BlogsPage() {
-  const [featured, ...rest] = allPosts;
+export default async function BlogsPage() {
+  const allPosts = await getAllPosts();
+  const [featured] = allPosts;
   const tags = Array.from(new Set(allPosts.flatMap((p) => p.tags))).slice(0, 6);
 
   return (
@@ -71,7 +72,7 @@ export default function BlogsPage() {
           </div>
           <div className="mt-12">
             <Suspense fallback={null}>
-              <PostFilterGrid posts={rest} />
+              <PostFilterGrid posts={allPosts} />
             </Suspense>
           </div>
         </div>
