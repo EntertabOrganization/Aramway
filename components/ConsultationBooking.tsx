@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { services } from "@/lib/services";
-import { countries, timeSlots, toDateKey, isSampleDateAvailable, isSampleSlotBooked } from "@/lib/consultation";
+import { countries, toDateKey, getWeeklyAvailability, getBookedTimes, type DayAvailability } from "@/lib/consultation";
 import PhoneField from "@/components/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -25,7 +25,9 @@ export default function ConsultationBooking() {
   const [viewMonth, setViewMonth] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
-  const [bookedKeys, setBookedKeys] = useState<Set<string>>(new Set());
+  const [weeklyAvailability, setWeeklyAvailability] = useState<DayAvailability[]>([]);
+  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
+  const [slotsLoading, setSlotsLoading] = useState(false);
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
@@ -33,8 +35,15 @@ export default function ConsultationBooking() {
     const now = startOfDay(new Date());
     setToday(now);
     setViewMonth(new Date(now.getFullYear(), now.getMonth(), 1));
-    setReady(true);
+    getWeeklyAvailability().then((days) => {
+      setWeeklyAvailability(days);
+      setReady(true);
+    });
   }, []);
+
+  function timeSlotsFor(date: Date): string[] {
+    return weeklyAvailability.find((d) => d.dayOfWeek === date.getDay())?.timeSlots ?? [];
+  }
 
   const canGoPrevMonth = useMemo(() => {
     if (!viewMonth || !today) return false;
@@ -52,6 +61,12 @@ export default function ConsultationBooking() {
     setSelectedDate(date);
     setSelectedSlot(null);
     setError("");
+    setBookedTimes([]);
+    setSlotsLoading(true);
+    getBookedTimes(date).then((times) => {
+      setBookedTimes(times);
+      setSlotsLoading(false);
+    });
   }
 
   const calendarCells = useMemo(() => {
@@ -66,12 +81,8 @@ export default function ConsultationBooking() {
 
   const slotsForSelectedDate = useMemo(() => {
     if (!selectedDate) return [];
-    return timeSlots.map((slot) => {
-      const key = `${toDateKey(selectedDate)}__${slot}`;
-      const booked = isSampleSlotBooked(selectedDate, slot) || bookedKeys.has(key);
-      return { slot, booked };
-    });
-  }, [selectedDate, bookedKeys]);
+    return timeSlotsFor(selectedDate).map((slot) => ({ slot, booked: bookedTimes.includes(slot) }));
+  }, [selectedDate, bookedTimes, weeklyAvailability]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -93,8 +104,14 @@ export default function ConsultationBooking() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error("Failed to submit booking");
-      setBookedKeys((prev) => new Set(prev).add(`${dateKey}__${selectedSlot}`));
+      const responseBody = await res.json().catch(() => null);
+      if (!res.ok) {
+        setStatus("error");
+        setError(responseBody?.error ?? "Something went wrong. Please try again or reach out to us directly.");
+        if (res.status === 409) setBookedTimes((prev) => [...prev, selectedSlot]);
+        return;
+      }
+      setBookedTimes((prev) => [...prev, selectedSlot]);
       setStatus("success");
       form.reset();
     } catch {
@@ -176,7 +193,7 @@ export default function ConsultationBooking() {
             {calendarCells.map((date, i) => {
               if (!date) return <div key={`empty-${i}`} />;
               const isPast = date < today;
-              const available = !isPast && isSampleDateAvailable(date);
+              const available = !isPast && timeSlotsFor(date).length > 0;
               const isSelected = selectedDate && toDateKey(date) === toDateKey(selectedDate);
               return (
                 <button
@@ -197,15 +214,20 @@ export default function ConsultationBooking() {
               );
             })}
           </div>
-          <p className="mt-3 text-xs text-muted">
-            Consultations are available Monday–Friday. Unavailable dates are shown crossed out.
-          </p>
+          <p className="mt-3 text-xs text-muted">Unavailable dates are shown crossed out.</p>
         </div>
       </div>
 
       {selectedDate && (
         <div>
           <p className="text-xs font-bold uppercase tracking-wide text-muted">Step 2 · Select a Time (ET)</p>
+          {slotsLoading ? (
+            <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
+              {Array.from({ length: 4 }).map((_, i) => (
+                <div key={i} className="h-10 animate-pulse rounded-lg bg-cream-deep" />
+              ))}
+            </div>
+          ) : (
           <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {slotsForSelectedDate.map(({ slot, booked }) => (
               <button
@@ -225,6 +247,7 @@ export default function ConsultationBooking() {
               </button>
             ))}
           </div>
+          )}
         </div>
       )}
 
