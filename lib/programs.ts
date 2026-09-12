@@ -110,8 +110,8 @@ export const programs: Program[] = [
       "Government and Vision 2030-aligned sector guidance",
       "On-the-ground representation in Riyadh",
     ],
-    image: "/images/program-saudi-gcc.webp",
-    heroImage: "/images/program-saudi-detail-hero.webp",
+    image: "/images/program-saudi-gcc.png",
+    heroImage: "/images/program-saudi-detail-hero.png",
     timeline: STANDARD_TIMELINE,
     faqs: [
       {

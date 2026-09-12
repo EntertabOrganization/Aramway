@@ -55,8 +55,14 @@ export default async function ProgramDetailPage({
       <section className="pb-16">
         <div className="container-max">
           <AnimateIn>
-            <div className="relative aspect-[16/9] w-full overflow-hidden rounded-3xl sm:aspect-[21/9]">
-              <Image src={program.heroImage ?? program.image} alt={program.title} fill className="object-cover" priority />
+            <div className="relative flex aspect-[16/9] w-full items-center justify-center overflow-hidden rounded-3xl p-6 sm:aspect-[21/9] sm:p-10">
+              <Image
+                src={program.heroImage ?? program.image}
+                alt={program.title}
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
             <h1 className="mt-8 max-w-3xl font-heading text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
               {program.title}
