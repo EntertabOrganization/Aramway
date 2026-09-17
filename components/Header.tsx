@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full bg-transparent">
       <div className="container-max flex h-20 items-center justify-between gap-4 sm:h-24">
-        <Link href="/" className="flex shrink-0 items-center gap-2">
+        <Link href="/" className="flex shrink-0 items-center gap-2 rounded-full bg-white p-1.5 shadow-sm">
           <Image src="/images/logo.svg" alt="Aramway" width={48} height={48} priority className="h-10 w-10 sm:h-12 sm:w-12" />
         </Link>
 
