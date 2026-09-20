@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Contact Us",
-  description: "Get in touch with Aramway Group to discuss your U.S. or MENA market expansion.",
+  description: "Get in touch with ARAMWAY GROUP to discuss your U.S. or MENA market expansion.",
 };
 
 const contactDetails = [

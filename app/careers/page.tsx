@@ -5,7 +5,7 @@ import CareerApplicationForm from "@/components/CareerApplicationForm";
 
 export const metadata: Metadata = {
   title: "Careers",
-  description: "Join the Aramway Group team bridging the U.S. and MENA markets.",
+  description: "Join the ARAMWAY GROUP team bridging the U.S. and MENA markets.",
 };
 
 const benefits = [

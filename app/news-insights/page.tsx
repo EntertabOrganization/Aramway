@@ -10,7 +10,7 @@ import { getExternalNews } from "@/lib/externalNews";
 export const metadata: Metadata = {
   title: "News & Insights",
   description:
-    "Aramway's hub for market intelligence, success stories, and expert commentary on U.S. and MENA trade.",
+    "ARAMWAY's hub for market intelligence, success stories, and expert commentary on U.S. and MENA trade.",
 };
 
 export default async function NewsInsightsPage() {

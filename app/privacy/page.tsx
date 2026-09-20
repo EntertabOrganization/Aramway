@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "Privacy policy for the Aramway Group website.",
+  description: "Privacy policy for the ARAMWAY GROUP website.",
 };
 
 export default function PrivacyPage() {

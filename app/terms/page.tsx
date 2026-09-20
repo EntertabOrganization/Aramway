@@ -4,7 +4,7 @@ import { site } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: "Terms of Use",
-  description: "Terms of use for the Aramway Group website.",
+  description: "Terms of use for the ARAMWAY GROUP website.",
 };
 
 export default function TermsPage() {

@@ -9,7 +9,7 @@ import { services } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Services",
-  description: "Explore Aramway Group's full range of cross-border business services.",
+  description: "Explore ARAMWAY GROUP's full range of cross-border business services.",
 };
 
 const faqs = [

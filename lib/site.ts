@@ -1,8 +1,8 @@
 export const site = {
-  name: "Aramway Group",
-  shortName: "Aramway",
+  name: "ARAMWAY GROUP",
+  shortName: "ARAMWAY",
   description:
-    "Aramway Group is a global trade and consultancy firm bridging the U.S. and MENA markets, empowering entrepreneurs and enterprises with strategic market-entry, legal, financial, and business support solutions.",
+    "ARAMWAY GROUP is a global trade and consultancy firm bridging the U.S. and MENA markets, empowering entrepreneurs and enterprises with strategic market-entry, legal, financial, and business support solutions.",
   url: "https://aramway.com",
   email: "info@aramway.com",
   phone: "+1 (202) 601-0116",

@@ -36,7 +36,7 @@ export default function Footer() {
           <div className="col-span-2">
             <Image
               src="/images/logo-footer.png"
-              alt="Aramway"
+              alt="ARAMWAY"
               width={140}
               height={115}
               className="h-[92px] w-auto"

@@ -71,7 +71,7 @@ export default function AboutPage() {
           <AnimateIn className="lg:w-[40%]">
             <Image
               src="/images/about-mission.webp"
-              alt="Aramway team"
+              alt="ARAMWAY team"
               width={800}
               height={845}
               className="h-auto w-full rounded-3xl"

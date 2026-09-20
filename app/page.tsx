@@ -30,7 +30,7 @@ const whyCards = [
 ];
 
 export const metadata: Metadata = {
-  title: { absolute: "Aramway" },
+  title: { absolute: "ARAMWAY" },
 };
 
 export default function Home() {
@@ -183,7 +183,7 @@ export default function Home() {
           <div className="mt-20 grid items-center gap-12 lg:grid-cols-2">
             <AnimateIn className="lg:order-2">
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl">
-                <Image src="/images/who-we-are.webp" alt="Aramway team" fill className="object-cover" />
+                <Image src="/images/who-we-are.webp" alt="ARAMWAY team" fill className="object-cover" />
               </div>
             </AnimateIn>
             <AnimateIn delay={0.1} className="lg:order-1">
@@ -302,7 +302,7 @@ export default function Home() {
       <section className="py-16 sm:py-20">
         <div className="container-max">
           <AnimateIn>
-            <span className="section-eyebrow">Aramway Network</span>
+            <span className="section-eyebrow">ARAMWAY Network</span>
             <h2 className="mt-5 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
               Partners in Growth
             </h2>

@@ -6,7 +6,7 @@ import Newsletter from "@/components/Newsletter";
 
 export const metadata: Metadata = {
   title: "Book Your Consultation",
-  description: "Schedule a one-on-one consultation with the Aramway team to discuss your U.S. or MENA market expansion.",
+  description: "Schedule a one-on-one consultation with the ARAMWAY team to discuss your U.S. or MENA market expansion.",
 };
 
 const expectations = [
