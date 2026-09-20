@@ -67,13 +67,13 @@ export const benefits = [
 ];
 
 export const partners = [
-  { name: "AramVox", logo: "/images/partners/aramvox.webp" },
-  { name: "IntellectWay", logo: "/images/partners/intellectway.webp" },
-  { name: "AramHub", logo: "/images/partners/aramhub.webp" },
-  { name: "EnterTab", logo: "/images/partners/entertab.webp" },
+  { name: "Samatechs", logo: "/images/partners/Samatechs.png" },
+  { name: "IntellectWay", logo: "/images/partners/Intellectway.png" },
+  { name: "AramHub", logo: "/images/partners/AramHub logo Final-01.png" },
+  { name: "EnterTab", logo: "/images/partners/entertab.png" },
   { name: "ARK Commercial", logo: "/images/partners/ark.png" },
-  { name: "TreTrip", logo: "/images/partners/tretrip.webp" },
-  { name: "ALKOOT", logo: "/images/partners/alkoot.webp" },
+  { name: "TreTrip", logo: "/images/partners/TreTrip.png" },
+  { name: "ALKOOT", logo: "/images/partners/ALKOOT.png" },
 ];
 
 export const coreValues = [
