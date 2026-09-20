@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { services } from "@/lib/services";
-import { countries, toDateKey, getWeeklyAvailability, getBookedTimes, type DayAvailability } from "@/lib/consultation";
+import { toDateKey, getWeeklyAvailability, getBookedTimes, type DayAvailability } from "@/lib/consultation";
 import PhoneField from "@/components/PhoneField";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -287,22 +287,6 @@ export default function ConsultationBooking() {
               </div>
               <div>
                 <PhoneField name="phone" label="Phone Number" required />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-sm font-semibold text-ink">Country *</label>
-                <select
-                  required
-                  name="country"
-                  defaultValue=""
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-                >
-                  <option value="" disabled>
-                    Select country
-                  </option>
-                  {countries.map((c) => (
-                    <option key={c}>{c}</option>
-                  ))}
-                </select>
               </div>
               <div>
                 <label className="mb-1.5 block text-sm font-semibold text-ink">Service of Interest</label>

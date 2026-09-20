@@ -1,14 +1,3 @@
-export const countries = [
-  "United States",
-  "Saudi Arabia",
-  "United Arab Emirates",
-  "Qatar",
-  "Kuwait",
-  "Bahrain",
-  "Oman",
-  "Other",
-];
-
 export type DayAvailability = {
   dayOfWeek: number;
   timeSlots: string[];
