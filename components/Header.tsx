@@ -40,12 +40,13 @@ export default function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 w-full bg-transparent">
       <div className="container-max flex h-20 items-center justify-between gap-4 sm:h-24">
+        <div className="flex min-w-0 items-center gap-3 rounded-full lg:gap-4 lg:border lg:border-white/40 lg:bg-white/60 lg:p-1.5 lg:shadow-[0_4px_4px_rgba(0,0,0,0.01),0_1px_4px_rgba(0,0,0,0.04)] lg:backdrop-blur-md">
         <Link href="/" className="flex shrink-0 items-center gap-2 rounded-full bg-white p-1.5 shadow-sm">
           <Image src="/images/logo.svg" alt="ARAMWAY" width={48} height={48} priority className="h-10 w-10 sm:h-12 sm:w-12" />
         </Link>
 
         <nav
-          className="hidden items-center rounded-full border border-white/40 bg-white/60 p-1.5 shadow-[0_4px_4px_rgba(0,0,0,0.01),0_1px_4px_rgba(0,0,0,0.04)] backdrop-blur-md lg:flex"
+          className="hidden items-center lg:flex"
         >
           {mainNav.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
@@ -127,26 +128,29 @@ export default function Header() {
             );
           })}
         </nav>
-
-        <div className="hidden shrink-0 lg:block">
-          <Link href="/book-consultation" className="btn-primary">
-            Book a Consultation
-          </Link>
         </div>
 
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
-        >
-          <span
-            className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span className={`block h-0.5 w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
-          />
-        </button>
+        <div className="flex shrink-0 items-center gap-4">
+          <div className="hidden lg:block">
+            <Link href="/book-consultation" className="btn-primary">
+              Book a Consultation
+            </Link>
+          </div>
+
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          >
+            <span
+              className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
+            />
+            <span className={`block h-0.5 w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
