@@ -19,6 +19,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
   const [desktopMenu, setDesktopMenu] = useState<string | null>(null);
   const [mobileSection, setMobileSection] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState(false);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -26,6 +27,13 @@ export default function Header() {
     setDesktopMenu(null);
     setMobileSection(null);
   }, [pathname]);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 0);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const openMega = (label: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -38,15 +46,17 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 w-full bg-transparent">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 w-full transition-colors duration-300 ${
+        isScrolled ? "bg-white" : "bg-transparent"
+      }`}
+    >
       <div className="container-max flex h-20 items-center justify-between gap-4 sm:h-24">
-        <Link href="/" className="flex shrink-0 items-center gap-2 rounded-full bg-white p-1.5 shadow-sm">
+        <Link href="/" className="flex shrink-0 items-center gap-2">
           <Image src="/images/logo.svg" alt="ARAMWAY" width={48} height={48} priority className="h-10 w-10 sm:h-12 sm:w-12" />
         </Link>
 
-        <nav
-          className="hidden items-center rounded-full border border-white/40 bg-white/60 p-1.5 shadow-[0_4px_4px_rgba(0,0,0,0.01),0_1px_4px_rgba(0,0,0,0.04)] backdrop-blur-md lg:flex"
-        >
+        <nav className="hidden items-center gap-8 lg:flex">
           {mainNav.map((item) => {
             const active = pathname === item.href || (item.href !== "/" && pathname.startsWith(item.href));
             const mega = MEGA_MENUS[item.label];
@@ -56,8 +66,10 @@ export default function Header() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`rounded-full px-4 py-2.5 text-sm font-medium transition-colors ${
-                    active ? "bg-white text-ink shadow-sm" : "text-muted hover:bg-white/60 hover:text-ink"
+                  className={`relative text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 ${
+                    active
+                      ? "text-primary after:w-full"
+                      : "text-ink after:w-0 hover:text-primary hover:after:w-full"
                   }`}
                 >
                   {item.label}
@@ -76,8 +88,10 @@ export default function Header() {
               >
                 <Link
                   href={item.href}
-                  className={`inline-flex items-center gap-1.5 rounded-full px-4 py-2.5 text-sm font-medium transition-colors ${
-                    active || isOpen ? "bg-white text-ink shadow-sm" : "text-muted hover:bg-white/60 hover:text-ink"
+                  className={`relative inline-flex items-center gap-1.5 text-sm font-medium transition-colors after:absolute after:-bottom-1 after:left-0 after:h-0.5 after:bg-primary after:transition-all after:duration-300 ${
+                    active || isOpen
+                      ? "text-primary after:w-full"
+                      : "text-ink after:w-0 hover:text-primary hover:after:w-full"
                   }`}
                 >
                   {item.label}
@@ -128,25 +142,27 @@ export default function Header() {
           })}
         </nav>
 
-        <div className="hidden shrink-0 lg:block">
-          <Link href="/book-consultation" className="btn-primary">
-            Book a Consultation
-          </Link>
-        </div>
+        <div className="flex shrink-0 items-center gap-4">
+          <div className="hidden lg:block">
+            <Link href="/book-consultation" className="btn-primary">
+              Book a Consultation
+            </Link>
+          </div>
 
-        <button
-          aria-label="Toggle menu"
-          onClick={() => setOpen((v) => !v)}
-          className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
-        >
-          <span
-            className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
-          />
-          <span className={`block h-0.5 w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
-          <span
-            className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
-          />
-        </button>
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+            className="flex h-10 w-10 flex-col items-center justify-center gap-1.5 lg:hidden"
+          >
+            <span
+              className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "translate-y-2 rotate-45" : ""}`}
+            />
+            <span className={`block h-0.5 w-6 bg-ink transition-opacity ${open ? "opacity-0" : ""}`} />
+            <span
+              className={`block h-0.5 w-6 bg-ink transition-transform ${open ? "-translate-y-2 -rotate-45" : ""}`}
+            />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -168,7 +184,7 @@ export default function Header() {
                     <Link
                       key={item.href}
                       href={item.href}
-                      className="rounded-full px-4 py-3 text-sm font-medium text-ink hover:bg-white/60"
+                      className="px-4 py-3 text-sm font-medium text-ink hover:text-primary"
                     >
                       {item.label}
                     </Link>
@@ -182,7 +198,7 @@ export default function Header() {
                     <button
                       type="button"
                       onClick={() => setMobileSection(expanded ? null : item.label)}
-                      className="flex w-full items-center justify-between rounded-full px-4 py-3 text-sm font-medium text-ink hover:bg-white/60"
+                      className="flex w-full items-center justify-between px-4 py-3 text-sm font-medium text-ink hover:text-primary"
                     >
                       {item.label}
                       <svg
