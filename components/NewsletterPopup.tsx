@@ -104,7 +104,7 @@ export default function NewsletterPopup() {
             ) : (
               <>
                 <h3 className="pr-8 text-center font-heading text-2xl font-bold text-ink">
-                  Stay Updated with ARAMWAY
+                  Stay updated with ARAMWAY GROUP
                 </h3>
                 <p className="mt-3 text-center text-sm text-muted">
                   Get market insights, expansion strategies, and program updates delivered to your
