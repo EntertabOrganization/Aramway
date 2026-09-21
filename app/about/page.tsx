@@ -66,6 +66,51 @@ export default function AboutPage() {
         </div>
       </section>
 
+      <section className="py-16">
+        <div className="container-max">
+          <div className="grid items-center gap-10 md:grid-cols-2">
+            <AnimateIn>
+              <span className="section-eyebrow">Who We Are</span>
+              <h2 className="mt-5 font-heading text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+                What Is ARAMWAY GROUP?
+              </h2>
+              <p className="mt-5 text-base leading-relaxed text-muted">
+                ARAMWAY GROUP is a global trade and consultancy firm built to close the gap between
+                U.S. and MENA markets. We work alongside entrepreneurs, startups, and established
+                enterprises to navigate market entry, regulatory complexity, and cross-border
+                deal-making — turning ambition into an actual presence in a new market.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-muted">
+                With offices in Virginia, USA and Riyadh, KSA, our team pairs on-the-ground expertise
+                across technology, financial services, real estate, healthcare, and logistics with a
+                network of trusted local partners on both sides of the Atlantic. Whether you&apos;re
+                expanding east or west, we handle the strategy, the relationships, and the
+                paperwork so you can focus on growth.
+              </p>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              {/* Placeholder — swap for a real embed (self-hosted <video> or YouTube/Vimeo iframe) once a company video exists. */}
+              <div className="relative aspect-video overflow-hidden rounded-3xl">
+                <Image
+                  src="/images/who-we-are.webp"
+                  alt="ARAMWAY GROUP overview video"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-ink/40" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg sm:h-20 sm:w-20">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-1">
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+            </AnimateIn>
+          </div>
+        </div>
+      </section>
+
       <section id="story" className="scroll-mt-28 py-16" style={{ backgroundColor: "var(--color-cream)" }}>
         <div className="container-max flex flex-col items-center gap-10 lg:flex-row lg:items-start">
           <AnimateIn className="lg:w-[40%]">
