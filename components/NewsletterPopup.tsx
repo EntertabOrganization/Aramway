@@ -3,7 +3,11 @@
 import { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
-const STORAGE_KEY = "aramway_newsletter_popup_seen";
+// Marks that this visitor has actually subscribed — not just seen the popup.
+// Only a successful subscribe should ever write this key; merely opening or
+// dismissing the popup must not, or it stops reappearing for people who
+// never converted.
+const STORAGE_KEY = "aramway_newsletter_subscribed";
 
 export default function NewsletterPopup() {
   const [open, setOpen] = useState(false);
@@ -16,7 +20,6 @@ export default function NewsletterPopup() {
 
     const timer = setTimeout(() => {
       setOpen(true);
-      localStorage.setItem(STORAGE_KEY, "1");
     }, 10000);
 
     return () => clearTimeout(timer);
@@ -55,6 +58,7 @@ export default function NewsletterPopup() {
       });
     } finally {
       setStatus("success");
+      localStorage.setItem(STORAGE_KEY, "1");
       form.reset();
     }
   }
