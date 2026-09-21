@@ -288,7 +288,7 @@ export default function ConsultationBooking() {
               <div>
                 <PhoneField name="phone" label="Phone Number" required />
               </div>
-              <div>
+              <div className="sm:col-span-2">
                 <label className="mb-1.5 block text-sm font-semibold text-ink">Service of Interest</label>
                 <select
                   name="service"
