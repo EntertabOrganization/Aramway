@@ -312,18 +312,18 @@ export default function Home() {
             </p>
           </AnimateIn>
           <AnimateIn delay={0.1}>
-            <div className="mt-12 grid grid-cols-2 items-center gap-8 sm:grid-cols-4 lg:grid-cols-7">
+            <div className="mt-12 grid grid-cols-2 gap-6 sm:grid-cols-4 lg:grid-cols-8 lg:gap-8">
               {partners.map((partner) => (
                 <div
                   key={partner.name}
-                  className="relative flex h-32 items-center justify-center transition-transform duration-300 hover:scale-90 sm:h-36"
+                  className="relative h-24 w-full transition-transform duration-300 hover:scale-90 lg:h-28"
                 >
                   <Image
                     src={partner.logo}
                     alt={partner.name}
-                    width={220}
-                    height={130}
-                    className="max-h-32 w-auto object-contain sm:max-h-36"
+                    fill
+                    sizes="(min-width: 1024px) 12vw, (min-width: 640px) 25vw, 50vw"
+                    className="object-contain"
                   />
                 </div>
               ))}

@@ -67,13 +67,14 @@ export const benefits = [
 ];
 
 export const partners = [
-  { name: "Samatechs", logo: "/images/partners/Samatechs.png" },
-  { name: "IntellectWay", logo: "/images/partners/Intellectway.png" },
-  { name: "AramHub", logo: "/images/partners/AramHub logo Final-01.png" },
-  { name: "EnterTab", logo: "/images/partners/entertab.png" },
-  { name: "ARK Commercial", logo: "/images/partners/ark.png" },
-  { name: "TreTrip", logo: "/images/partners/TreTrip.png" },
-  { name: "ALKOOT", logo: "/images/partners/ALKOOT.png" },
+  { name: "Samatechs", logo: "/images/partners/Samatechs.webp" },
+  { name: "ARK Commercial", logo: "/images/partners/ARK.webp" },
+  { name: "AramHub", logo: "/images/partners/AramHub logo Final-01.webp" },
+  { name: "TreTrip", logo: "/images/partners/tretrip.webp" },
+  { name: "ALKOOT", logo: "/images/partners/ALKOOT.webp" },
+  { name: "IntellectWay", logo: "/images/partners/Intellectway.webp" },
+  { name: "AramVox", logo: "/images/partners/ARAMVOX.webp" },
+  { name: "EnterTab", logo: "/images/partners/entertab.webp" },
 ];
 
 export const coreValues = [
