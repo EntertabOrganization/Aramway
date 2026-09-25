@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import { services } from "@/lib/services";
 import { toDateKey, getWeeklyAvailability, getBookedTimes, type DayAvailability } from "@/lib/consultation";
 import PhoneField from "@/components/PhoneField";
+import SelectField from "@/components/SelectField";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -289,19 +290,13 @@ export default function ConsultationBooking() {
                 <PhoneField name="phone" label="Phone Number" required />
               </div>
               <div className="sm:col-span-2">
-                <label className="mb-1.5 block text-sm font-semibold text-ink">Service of Interest</label>
-                <select
+                <SelectField
                   name="service"
-                  defaultValue=""
-                  className="w-full rounded-lg border border-border bg-white px-4 py-3 text-sm outline-none transition-colors focus:border-primary"
-                >
-                  <option value="">Select a service</option>
-                  {services.map((s) => (
-                    <option key={s.slug} value={s.title}>
-                      {s.title}
-                    </option>
-                  ))}
-                </select>
+                  label="Service of Interest"
+                  placeholder="Select a service"
+                  options={services.map((s) => ({ value: s.title, label: s.title }))}
+                />
+
               </div>
             </div>
             <div>
