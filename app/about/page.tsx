@@ -3,6 +3,7 @@ import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import AnimateIn from "@/components/AnimateIn";
 import ValueBadge from "@/components/ValueBadge";
+import AboutVideo from "@/components/AboutVideo";
 import ContactSection from "@/components/ContactSection";
 import { site } from "@/lib/site";
 
@@ -89,23 +90,7 @@ export default function AboutPage() {
               </p>
             </AnimateIn>
             <AnimateIn delay={0.1}>
-              {/* Placeholder — swap for a real embed (self-hosted <video> or YouTube/Vimeo iframe) once a company video exists. */}
-              <div className="relative aspect-video overflow-hidden rounded-3xl">
-                <Image
-                  src="/images/who-we-are.webp"
-                  alt="ARAMWAY GROUP overview video"
-                  fill
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-ink/40" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg sm:h-20 sm:w-20">
-                    <svg width="22" height="22" viewBox="0 0 24 24" fill="white" className="ml-1">
-                      <path d="M8 5v14l11-7z" />
-                    </svg>
-                  </span>
-                </div>
-              </div>
+              <AboutVideo />
             </AnimateIn>
           </div>
         </div>
