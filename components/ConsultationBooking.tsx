@@ -2,7 +2,14 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { services } from "@/lib/services";
-import { toDateKey, getWeeklyAvailability, getBookedTimes, type DayAvailability } from "@/lib/consultation";
+import {
+  toDateKey,
+  getWeeklyAvailability,
+  getBookedTimes,
+  easternNow,
+  isSlotPast,
+  type DayAvailability,
+} from "@/lib/consultation";
 import PhoneField from "@/components/PhoneField";
 import SelectField from "@/components/SelectField";
 
@@ -14,15 +21,9 @@ const MONTH_LABELS = [
   "July", "August", "September", "October", "November", "December",
 ];
 
-function startOfDay(date: Date) {
-  const copy = new Date(date);
-  copy.setHours(0, 0, 0, 0);
-  return copy;
-}
-
 export default function ConsultationBooking() {
   const [ready, setReady] = useState(false);
-  const [today, setToday] = useState<Date | null>(null);
+  const [now, setNow] = useState<ReturnType<typeof easternNow> | null>(null);
   const [viewMonth, setViewMonth] = useState<Date | null>(null);
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
   const [selectedSlot, setSelectedSlot] = useState<string | null>(null);
@@ -32,15 +33,27 @@ export default function ConsultationBooking() {
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
 
+  const today = now?.today ?? null;
+
   useEffect(() => {
-    const now = startOfDay(new Date());
-    setToday(now);
-    setViewMonth(new Date(now.getFullYear(), now.getMonth(), 1));
+    const initial = easternNow();
+    setNow(initial);
+    setViewMonth(new Date(initial.today.getFullYear(), initial.today.getMonth(), 1));
     getWeeklyAvailability().then((days) => {
       setWeeklyAvailability(days);
       setReady(true);
     });
+    // Keep the Eastern-Time clock current so slots expire while the page stays open.
+    const timer = setInterval(() => setNow(easternNow()), 30_000);
+    return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    if (now && selectedDate && selectedSlot && status !== "success" && isSlotPast(selectedDate, selectedSlot, now)) {
+      setSelectedSlot(null);
+      setError("That time has just passed. Please choose another time.");
+    }
+  }, [now, selectedDate, selectedSlot, status]);
 
   function timeSlotsFor(date: Date): string[] {
     return weeklyAvailability.find((d) => d.dayOfWeek === date.getDay())?.timeSlots ?? [];
@@ -82,13 +95,20 @@ export default function ConsultationBooking() {
 
   const slotsForSelectedDate = useMemo(() => {
     if (!selectedDate) return [];
-    return timeSlotsFor(selectedDate).map((slot) => ({ slot, booked: bookedTimes.includes(slot) }));
-  }, [selectedDate, bookedTimes, weeklyAvailability]);
+    return timeSlotsFor(selectedDate)
+      .filter((slot) => !now || !isSlotPast(selectedDate, slot, now))
+      .map((slot) => ({ slot, booked: bookedTimes.includes(slot) }));
+  }, [selectedDate, bookedTimes, weeklyAvailability, now]);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!selectedDate || !selectedSlot) {
       setError("Please select a date and time for your consultation.");
+      return;
+    }
+    if (isSlotPast(selectedDate, selectedSlot)) {
+      setSelectedSlot(null);
+      setError("That time has just passed. Please choose another time.");
       return;
     }
     setStatus("submitting");
@@ -194,7 +214,7 @@ export default function ConsultationBooking() {
             {calendarCells.map((date, i) => {
               if (!date) return <div key={`empty-${i}`} />;
               const isPast = date < today;
-              const available = !isPast && timeSlotsFor(date).length > 0;
+              const available = !isPast && timeSlotsFor(date).some((slot) => !isSlotPast(date, slot, now ?? undefined));
               const isSelected = selectedDate && toDateKey(date) === toDateKey(selectedDate);
               return (
                 <button
@@ -228,6 +248,8 @@ export default function ConsultationBooking() {
                 <div key={i} className="h-10 animate-pulse rounded-lg bg-cream-deep" />
               ))}
             </div>
+          ) : slotsForSelectedDate.length === 0 ? (
+            <p className="mt-3 text-sm text-muted">No remaining times on this date. Please choose another day.</p>
           ) : (
           <div className="mt-3 grid grid-cols-2 gap-2 sm:grid-cols-4">
             {slotsForSelectedDate.map(({ slot, booked }) => (
