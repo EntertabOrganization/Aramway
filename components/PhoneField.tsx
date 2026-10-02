@@ -95,10 +95,9 @@ export default function PhoneField({
             setValue(phone);
             setDisplay({ dialCode: meta.country.dialCode, inputValue: meta.inputValue });
           }}
-          // The dial code sits beside the flag and can't be deleted, and typed digits are always read as a
+          // Only the flag is shown — the dial code is hidden, and typed digits are always read as a
           // national number — so the flag only changes when the user picks another country.
           disableDialCodeAndPrefix
-          showDisabledDialCodeAndPrefix
           disableCountryGuess
           required={required}
           inputProps={{ autoComplete: "tel" }}
@@ -108,9 +107,6 @@ export default function PhoneField({
           countrySelectorStyleProps={{
             buttonClassName:
               "!h-auto !rounded-l-lg !border !border-r-0 !border-border !bg-white !px-3 !py-3",
-          }}
-          dialCodePreviewStyleProps={{
-            className: "!border !border-x-0 !border-border !bg-white !pl-1 !pr-0 !text-sm !text-ink",
           }}
         />
       </div>
